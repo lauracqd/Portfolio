@@ -1694,6 +1694,52 @@
       background: #ffde59;
     }
 
+    /* Blog Image Stack Responsiveness */
+    .blog-image-stack {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 400px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .blog-image-stack img {
+      width: 400px;
+      height: auto;
+      position: absolute;
+      border: 3px solid #111;
+      box-shadow: 4px 4px 0 #111;
+      transition: all 0.3s ease;
+    }
+
+    .blog-img-1 { left: 8rem; z-index: 1; }
+    .blog-img-2 { left: 50%; transform: translateX(-50%); z-index: 2; }
+    .blog-img-3 { right: 8rem; z-index: 1; }
+
+    @media (max-width: 1100px) {
+      .blog-img-1 { left: 2rem; }
+      .blog-img-3 { right: 2rem; }
+    }
+
+    @media (max-width: 900px) {
+      .blog-image-stack {
+        height: auto;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 0;
+      }
+      .blog-image-stack img {
+        position: static;
+        width: 100%;
+        max-width: 500px;
+        transform: none !important;
+        margin: 0 auto;
+      }
+    }
+
     @media (max-width: 900px) {
 
       .detail-layout-a,
@@ -1738,6 +1784,10 @@
     @media (max-width: 580px) {
       .detail-extras-grid {
         grid-template-columns: 1fr;
+      }
+
+      .full-width-img-block {
+        padding: 1.5rem 0 !important;
       }
     }
   </style>
@@ -2386,8 +2436,8 @@
     </div>
 
     <!-- Layout B : image centrée / texte gauche + compétences droite -->
-    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
-      <div style="grid-column:1 / -1; display:flex; justify-content:center; padding:3rem 0;">
+    <div class="detail-layout-b">
+      <div class="full-width-img-block" style="grid-column:1 / -1; display:flex; justify-content:center; padding:3rem 0;">
         <img src="Edito/fortnitemagazine.jpg" alt="Fortnite Magazine"
           style="width:100%; max-width:700px; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
       </div>
@@ -2500,16 +2550,12 @@
       </div>
     </div>
 
-    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+    <div class="detail-layout-b">
       <div style="grid-column:1 / -1; display:flex; justify-content:center; padding:5rem 0; width: 100%;">
-        <div
-          style="display:flex; justify-content:center; align-items:center; position:relative; height:400px; width: 100%; max-width: 1000px;">
-          <img src="Edito/bleuet2.png" alt="Bleuet 2"
-            style="width:400px; height:auto; position:absolute; left:50%; transform:translateX(-50%); z-index:2; border:3px solid #111; box-shadow:4px 4px 0 #111;" />
-          <img src="Edito/bleuet1.png" alt="Bleuet 1"
-            style="width:400px; height:auto; position:absolute; left:8rem; z-index:1; border:3px solid #111; box-shadow:4px 4px 0 #111;" />
-          <img src="Edito/bleuet3.png" alt="Bleuet 3"
-            style="width:400px; height:auto; position:absolute; right:8rem; z-index:1; border:3px solid #111; box-shadow:4px 4px 0 #111;" />
+        <div class="blog-image-stack">
+          <img src="Edito/bleuet2.png" alt="Bleuet 2" class="blog-img-2" />
+          <img src="Edito/bleuet1.png" alt="Bleuet 1" class="blog-img-1" />
+          <img src="Edito/bleuet3.png" alt="Bleuet 3" class="blog-img-3" />
         </div>
       </div>
       <div class="text-side">
@@ -2608,7 +2654,7 @@
         </div>
         <div class="detail-extra-item"><img src="Design graphique/tsitp/tsitp-sephora.png" alt="TSITP Sephora" /></div>
       </div>
-      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div class="detail-layout-b">
         <div class="text-side">
           <h2 class="detail-h2">Nouvelle stratégie de communication<br>The Summer I Turned Pretty</h2>
           <div class="detail-projet-tags">
@@ -2720,7 +2766,7 @@
           </div>
         </div>
       </div>
-      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div class="detail-layout-b">
         <div class="detail-extras"
           style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
           <div class="extra-item" style="background:none; border:none; box-shadow:none;"><img
@@ -2809,7 +2855,7 @@
           </div>
         </div>
       </div>
-      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div class="detail-layout-b">
         <div class="text-side">
           <h2 class="detail-h2">Infographies<br>et Data-Art</h2>
           <div class="detail-projet-tags">
@@ -2843,7 +2889,7 @@
               style="width:500px; height:auto; display:inline-block; margin:0 auto;" /></div>
         </div>
       </div>
-      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div class="detail-layout-b">
         <div class="detail-extras"
           style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; justify-content:center; align-items:center;">
           <div style="display:flex; gap:0; flex-wrap:wrap; justify-content:center; width:100%;">
@@ -3094,7 +3140,7 @@
         <div class="detail-extra-item" style="background: #d4c7d5;"><img
             src="Reseaux sociaux/pole formation/Insta - meme bac pro melec.png" alt="Publication Instagram" /></div>
       </div>
-      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div class="detail-layout-b">
         <div class="text-side">
           <h2 class="detail-h2">Les réseaux sociaux<br>du Pôle Formation Adour</h2>
           <div class="detail-projet-tags">
@@ -3210,7 +3256,7 @@
         <div class="detail-extra-item" style="background: #d4c7d5;"><img src="Reseaux sociaux/booktok/Booktok3.png"
             alt="Publication Instagram" /></div>
       </div>
-      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div class="detail-layout-b">
         <div class="text-side">
           <h2 class="detail-h2">Ambassadrice<br>pour le Pass Culture</h2>
           <div class="detail-projet-tags">
@@ -3310,8 +3356,8 @@
       </div>
     </div>
 
-    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
-      <div
+    <div class="detail-layout-b">
+      <div class="full-width-img-block"
         style="grid-column:1 / -1; display:flex; flex-direction:column; align-items:center; gap:1.5rem; padding:3rem 0;">
         <img src="web design & developpement/dm2i/cartographie.png" alt="cartographie"
           style="width:100%; max-width:700px; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
@@ -3417,8 +3463,8 @@
         </div>
       </div>
     </div>
-    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
-      <div
+    <div class="detail-layout-b">
+      <div class="full-width-img-block"
         style="grid-column:1 / -1; display:flex; flex-direction:column; align-items:center; gap:1.5rem; padding:3rem 0;">
         <img src="web design & developpement/challenge data/dataviz.png" alt="dataviz"
           style="width:100%; max-width:700px; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
@@ -3543,8 +3589,8 @@
     </div>
 
     <!-- Layout F : image gauche large (jaune) / texte fond noir droite -->
-    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
-      <div
+    <div class="detail-layout-b">
+      <div class="full-width-img-block"
         style="grid-column:1 / -1; display:flex; flex-direction:column; align-items:center; gap:1.5rem; padding:3rem 0;">
         <a href="https://drive.google.com/file/d/1ODC4FtEtm0YjJeHW1JKK9IHoYTLWJlvV/view?usp=drive_link" target="_blank"
           style="width:100%; max-width:700px; display:block; text-decoration:none;">
@@ -3650,8 +3696,8 @@
         </div>
       </div>
     </div>
-    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
-      <div
+    <div class="detail-layout-b">
+      <div class="full-width-img-block"
         style="grid-column:1 / -1; display:flex; flex-direction:column; align-items:center; gap:1.5rem; padding:3rem 0;">
         <a href="https://drive.google.com/file/d/1S1nJ5vnn6J1F7iMQg-ychSHgbxsfOvGX/view?usp=drive_link" target="_blank"
           style="width:100%; max-width:700px; display:block; text-decoration:none;">
@@ -3829,7 +3875,7 @@
       </div>
     </div>
 
-    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+    <div class="detail-layout-b">
       <div
         style="grid-column:1 / -1; display:flex; flex-direction:column; align-items:center; padding:3rem 0; gap:2rem;">
         <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;">
@@ -4095,7 +4141,7 @@
       cur.style.top = e.clientY + 'px';
     });
 
-     document.querySelectorAll('a, button, .gi, .btn, .back-btn').forEach(el => {
+    document.querySelectorAll('a, button, .gi, .btn, .back-btn').forEach(el => {
       el.addEventListener('mouseenter', () => {
         cur.classList.add('big');
         path.setAttribute('fill', '#FFE24B');
