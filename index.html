@@ -1762,6 +1762,7 @@
 
       .detail-layout-a,
       .detail-layout-b,
+      .detail-layout-c,
       .detail-layout-d,
       .detail-layout-e,
       .detail-layout-f,
@@ -1771,6 +1772,7 @@
 
       .detail-layout-a .img-side,
       .detail-layout-b .text-side,
+      .detail-layout-c .img-top,
       .detail-layout-d .img-side,
       .detail-layout-e .text-side,
       .detail-layout-f .img-side {
@@ -1816,6 +1818,303 @@
       .flex-stack-mobile {
         flex-direction: column !important;
         align-items: center !important;
+      }
+    }
+
+    /* ════════════════════════════════════════
+       TABLETTE : 768px – 1023px
+       La page principale est déjà ok (mac=desktop).
+       On cible ici les pages détail + ajustements nav/hero.
+    ════════════════════════════════════════ */
+    @media (min-width: 581px) and (max-width: 1023px) {
+
+      /* NAV : on réduit un peu les espacements */
+      nav {
+        padding: 1rem 1.8rem;
+      }
+
+      .nav-links {
+        gap: 1.2rem;
+      }
+
+      .logo {
+        font-size: 1.7rem;
+      }
+
+      .nav-links a {
+        font-size: 0.6rem;
+      }
+
+      /* HERO : colonne centrée, plus compact qu'en mobile */
+      .hero-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2.5rem 2rem 3rem;
+        gap: 2.5rem;
+      }
+
+      .hero-top {
+        padding: 3rem 2rem 0;
+      }
+
+      .hero-card-wrap {
+        width: 100%;
+        max-width: 520px;
+      }
+
+      .id-card {
+        max-width: 520px;
+        flex-direction: row;   /* garde la carte horizontale sur tablette */
+        align-items: flex-start;
+      }
+
+      .id-img {
+        width: 120px;
+      }
+
+      .ctas {
+        max-width: 520px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .ctas .btn {
+        flex: 1;
+        min-width: 180px;
+        justify-content: center;
+      }
+
+      /* STATEMENT */
+      .statement {
+        flex-direction: row;
+        gap: 2.5rem;
+        padding: 3rem 2rem;
+      }
+
+      .stmt-big {
+        font-size: clamp(3rem, 7vw, 6rem);
+      }
+
+      /* SKILLS GRID : 2 colonnes sur tablette */
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      #skills {
+        padding: 4rem 2rem;
+      }
+
+      /* GALLERY : 2 colonnes */
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 220px;
+      }
+
+      .gi.wide {
+        grid-column: span 2;
+      }
+
+      .gi.tall {
+        grid-row: span 2;
+      }
+
+      /* CONTACT */
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-left,
+      .contact-right {
+        padding: 3.5rem 2rem;
+      }
+
+      /* FOOTER */
+      footer {
+        flex-direction: column;
+        gap: .6rem;
+        text-align: center;
+        padding: 1.2rem 1.5rem;
+      }
+
+      /* ── PAGES DÉTAIL sur tablette ── */
+      /* Layouts à 2 colonnes : on passe en colonne unique */
+      .detail-layout-a,
+      .detail-layout-b,
+      .detail-layout-d,
+      .detail-layout-e,
+      .detail-layout-f,
+      .detail-layout-m {
+        grid-template-columns: 1fr !important;
+      }
+
+      /* On remplace le border-right par border-bottom */
+      .detail-layout-a .img-side,
+      .detail-layout-b .text-side,
+      .detail-layout-d .img-side,
+      .detail-layout-e .text-side,
+      .detail-layout-f .img-side,
+      .detail-layout-m .img-side {
+        border-right: none;
+        border-bottom: 4px solid var(--black);
+        min-height: 45vh;
+      }
+
+      /* Layout C : texte en 1 col */
+      .detail-layout-c .text-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      /* Layout G */
+      .detail-layout-g .mosaic-top {
+        grid-template-columns: 1fr 1fr;   /* garde 2 cols sur tablette */
+      }
+
+      .detail-layout-g .text-bottom-g {
+        grid-template-columns: 1fr;
+      }
+
+      /* Padding général des text-side sur tablette */
+      .detail-layout-a .text-side,
+      .detail-layout-b .text-side,
+      .detail-layout-c .text-bottom,
+      .detail-layout-d .text-side,
+      .detail-layout-e .text-side,
+      .detail-layout-f .text-side,
+      .detail-layout-m .text-side {
+        padding: 3rem 2rem;
+      }
+
+      /* Extras grid : 2 colonnes */
+      .detail-extras-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      /* Skills wrap sur les pages détail */
+      .detail-skills-wrap {
+        grid-template-columns: 1fr;
+        padding: 3rem 2rem;
+      }
+
+      .skills-two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      /* Detail nav */
+      .detail-nav {
+        padding: 1rem 1.8rem;
+      }
+
+      /* Hero détail */
+      .detail-hero {
+        padding: 3rem 2rem 2.5rem;
+      }
+    }
+
+    /* ════════════════════════════════════════
+       GRAND ÉCRAN : ≥ 1440px
+       On élargit les conteneurs et augmente
+       légèrement typographie + espacements.
+    ════════════════════════════════════════ */
+    @media (min-width: 1440px) {
+
+      nav {
+        padding: 1.3rem 4rem;
+      }
+
+      .logo {
+        font-size: 2.2rem;
+      }
+
+      .nav-links {
+        gap: 2.8rem;
+      }
+
+      .nav-links a {
+        font-size: .74rem;
+      }
+
+      /* HERO */
+      .hero-top {
+        padding: 6rem 4rem 0;
+      }
+
+      .hero-main {
+        padding: 0 4rem 4rem;
+        gap: 2rem;
+      }
+
+      /* STATEMENT */
+      .statement {
+        padding: 4.5rem 4rem;
+        gap: 6rem;
+      }
+
+      /* SECTIONS communes */
+      #skills,
+      #creations {
+        padding: 6rem 4rem;
+      }
+
+      /* GALLERY : 3 colonnes avec rangées plus hautes */
+      .gallery {
+        grid-auto-rows: 300px;
+      }
+
+      /* CONTACT */
+      .contact-left,
+      .contact-right {
+        padding: 6rem 4rem;
+      }
+
+      footer {
+        padding: 1.4rem 4rem;
+      }
+
+      /* PAGES DÉTAIL */
+      .detail-hero {
+        padding: 5rem 4rem 4rem;
+      }
+
+      .detail-layout-a .text-side,
+      .detail-layout-b .text-side,
+      .detail-layout-c .text-bottom,
+      .detail-layout-d .text-side,
+      .detail-layout-e .text-side,
+      .detail-layout-f .text-side,
+      .detail-layout-m .text-side {
+        padding: 5rem 4rem;
+      }
+
+      .detail-layout-a .img-side,
+      .detail-layout-b .img-side,
+      .detail-layout-d .img-side,
+      .detail-layout-e .img-side,
+      .detail-layout-f .img-side,
+      .detail-layout-m .img-side {
+        padding: 4rem;
+      }
+
+      .detail-extras {
+        padding: 4rem;
+      }
+
+      .detail-skills-wrap {
+        padding: 5rem 4rem;
+        grid-template-columns: 1fr 480px;
+      }
+
+      .detail-layout-g .text-bottom-g {
+        padding: 4.5rem 4rem;
+      }
+
+      /* Body text légèrement plus grand */
+      .detail-body {
+        font-size: .82rem;
+      }
+
+      .sk-desc {
+        font-size: .78rem;
       }
     }
   </style>
