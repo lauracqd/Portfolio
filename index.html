@@ -1910,6 +1910,39 @@
       }
 
       /* Page C6 (Audiovisuel) specific optimizations */
+      #page-c6 .detail-layout-b {
+        display: flex !important;
+        flex-direction: column !important;
+        border-bottom: 4px solid var(--black) !important;
+      }
+
+      #page-c6 .full-width-img-block {
+        width: 100% !important;
+        padding: 2rem 1.2rem !important;
+        box-sizing: border-box !important;
+        border-bottom: 4px solid var(--black) !important;
+      }
+
+      #page-c6 .full-width-img-block img {
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        max-height: none !important; /* Allow full height if needed, or set 300px */
+      }
+
+      #page-c6 .text-side, #page-c6 .detail-extras {
+        width: 100% !important;
+        padding: 2.5rem 1.5rem !important;
+        box-sizing: border-box !important;
+        border-right: none !important;
+        border-bottom: 4px solid var(--black) !important;
+      }
+
+      #page-c6 .detail-extras:last-child {
+        border-bottom: none !important;
+      }
+
+      /* Bottom images fix for Page C6 */
       #page-c6 .img-side > div[style*="display: flex"] {
         flex-direction: column !important;
         gap: 1.5rem !important;
@@ -1917,34 +1950,9 @@
 
       #page-c6 img[style*="height: 500px"] {
         height: auto !important;
-        max-height: 350px !important;
+        max-height: 400px !important;
         width: 100% !important;
         object-fit: contain !important;
-      }
-
-      #page-c6 .detail-extras {
-        padding: 2.5rem 1.2rem !important;
-      }
-
-      #page-c6 .full-width-img-block {
-        padding: 1.5rem 1.2rem !important;
-      }
-
-      #page-c6 .full-width-img-block img {
-        max-height: 40vh !important;
-        width: 100% !important;
-        object-fit: contain !important;
-      }
-
-      #page-c6 .full-width-img-block p {
-        font-size: 0.8rem !important;
-        margin-top: 1rem !important;
-        text-align: center !important;
-        opacity: 0.8;
-      }
-
-      #page-c6 .text-side, #page-c6 .detail-extras {
-        padding: 2.5rem 1.5rem !important;
       }
 
       /* Global override for inline fixed widths on mobile */
