@@ -1769,6 +1769,11 @@
       }
     }
 
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
     @media (max-width: 900px) {
 
       .detail-layout-a,
@@ -1940,6 +1945,13 @@
 
       #page-c6 .text-side, #page-c6 .detail-extras {
         padding: 2.5rem 1.5rem !important;
+      }
+
+      /* Global override for inline fixed widths on mobile */
+      *[style*="width:350px"], *[style*="width:500px"], *[style*="width: 700px"], *[style*="width:350px"], *[style*="width:500px"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
       }
 
       .id-card, .ctas, .ctas .btn {
