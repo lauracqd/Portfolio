@@ -1,0 +1,4180 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aninha Lacerda — Designer · Version A (dentelle haut)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&family=Caveat:wght@600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --pink: #FF3D8B;
+      --hot: #FF006E;
+      --cream: #FFF5E1;
+      --black: #111111;
+      --lilac: #C9B8FF;
+      --yellow: #FFE24B;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--black);
+      font-family: 'Space Mono', monospace;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    #cur {
+      width: 30px;
+      height: 30px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s;
+      animation: cur-spin 5s linear infinite;
+    }
+
+    #cur.big {
+      width: 54px;
+      height: 54px;
+    }
+
+    @keyframes cur-spin {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    @keyframes tick {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 2.5rem;
+      border-bottom: 3px solid var(--black);
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: .06em;
+      text-decoration: none;
+      color: var(--black);
+      cursor: none;
+    }
+
+    .logo em {
+      color: var(--pink);
+      font-style: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: .68rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--black);
+      position: relative;
+      cursor: none;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--pink);
+      transition: width .2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ══ LACE TOP BORDER ══ */
+    .lace-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 60px;
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0.12;
+    }
+
+    /* ══ HERO ══ */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      border-bottom: 4px solid var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 5rem 2.5rem 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      background: var(--pink);
+      color: var(--cream);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: .1em;
+      padding: 6px 16px;
+      border: 3px solid var(--black);
+      transform: rotate(2deg);
+      box-shadow: 4px 4px 0 var(--black);
+      margin-left: 1rem;
+    }
+
+    .hero-date {
+      font-size: .62rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .45;
+      text-align: right;
+    }
+
+    .hero-main {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 2.5rem 3rem;
+      gap: 1rem;
+    }
+
+    .hero-title-block {
+      position: relative;
+      margin-left: 3rem;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5.5rem, 15vw, 14rem);
+      line-height: .82;
+      letter-spacing: -.01em;
+    }
+
+    .hero-title .l1 {
+      display: block;
+      color: var(--black);
+    }
+
+    .hero-title .l2 {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 3px var(--pink);
+    }
+
+    .hero-title .l3 {
+      display: block;
+      color: var(--pink);
+      text-shadow: 6px 6px 0 var(--black);
+    }
+
+    .deco {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .deco.s1 {
+      top: 0;
+      right: -4rem;
+      font-size: 3.5rem;
+      color: var(--yellow);
+      animation: spin 12s linear infinite;
+    }
+
+    .deco.s2 {
+      bottom: 3rem;
+      left: -2rem;
+      font-size: 2rem;
+      color: var(--pink);
+      animation: spin 9s linear infinite reverse;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero-sub {
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      background: var(--yellow);
+      color: var(--black);
+      border: 3px solid var(--black);
+      padding: 5px 18px;
+      display: inline-block;
+      transform: rotate(-2deg);
+      box-shadow: 4px 4px 0 var(--black);
+      margin-top: 1.2rem;
+    }
+
+    .pills {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      margin-top: 1.8rem;
+    }
+
+    .pill {
+      font-size: .62rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+    }
+
+    .pill-black {
+      background: var(--black);
+      color: var(--cream);
+    }
+
+    .pill-pink {
+      background: var(--pink);
+      color: var(--cream);
+    }
+
+    .pill-lilac {
+      background: var(--lilac);
+      color: var(--black);
+    }
+
+    .pill-out {
+      border: 2px solid var(--black);
+      color: var(--black);
+    }
+
+    /* ID Card */
+    .hero-card-wrap {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.2rem;
+      padding-bottom: .5rem;
+      padding-left: 60px;
+    }
+
+    .id-card {
+      background: var(--pink);
+      border: 3px solid var(--black);
+      border-radius: 16px;
+      padding: 2rem 2.2rem;
+      width: 550px;
+      box-shadow: 8px 8px 0 var(--black);
+      position: relative;
+      animation: popIn .7s .2s cubic-bezier(.34, 1.56, .64, 1) both;
+      display: flex;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .id-card::before {
+      content: '';
+      width: 25px;
+      height: 25px;
+      background: var(--black);
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .id-label {
+      font-size: .6rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      opacity: .6;
+      margin-bottom: 1rem;
+    }
+
+    .id-body {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .id-img {
+      width: 150px;
+      height: auto;
+      object-fit: cover;
+      background: none;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .id-info {
+      flex: 1;
+    }
+
+    .id-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      line-height: .92;
+      color: var(--cream);
+      text-shadow: 3px 3px 0 var(--black);
+    }
+
+    .id-role {
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      color: var(--black);
+      margin: .4rem 0 .7rem;
+    }
+
+    .id-desc {
+      font-size: .7rem;
+      line-height: 1.65;
+      color: var(--black);
+    }
+
+    .id-sign {
+      font-family: 'Caveat', cursive;
+      font-size: 1.7rem;
+      color: var(--cream);
+      text-align: right;
+      margin-top: .9rem;
+      border-top: 2px solid rgba(0, 0, 0, .3);
+      padding-top: .5rem;
+    }
+
+    .id-bar {
+      font-size: .38rem;
+      opacity: .45;
+      margin-top: .3rem;
+      text-align: center;
+      word-break: break-all;
+    }
+
+    .ctas {
+      display: flex;
+      gap: .8rem;
+      flex-direction: row;
+      width: 500px;
+    }
+
+    .btn {
+      display: flex;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: .06em;
+      text-align: center;
+      text-decoration: none;
+      padding: .85rem 1.5rem;
+      border: 3px solid var(--black);
+      cursor: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .btn-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      transform: translateY(101%);
+      transition: transform .25s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .btn:hover {
+      transform: translate(-3px, -3px);
+    }
+
+    .btn-pink {
+      background: var(--pink);
+      color: var(--cream);
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    .btn-pink::before {
+      background: var(--black);
+    }
+
+    .btn-pink:hover {
+      box-shadow: 8px 8px 0 var(--black);
+      color: var(--pink);
+    }
+
+    .btn-pink:hover::before {
+      transform: translateY(0);
+    }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--black);
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    .btn-yellow::before {
+      background: var(--black);
+    }
+
+    .btn-yellow:hover {
+      box-shadow: 8px 8px 0 var(--black);
+      color: var(--yellow);
+    }
+
+    .btn-yellow:hover::before {
+      transform: translateY(0);
+    }
+
+    /* STATEMENT */
+    .statement {
+      background: var(--pink);
+      border-bottom: 4px solid var(--black);
+      padding: 3.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .statement::before {
+      content: '★';
+      font-size: 20rem;
+      position: absolute;
+      right: -2rem;
+      top: -4rem;
+      opacity: .07;
+      color: var(--black);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .stmt-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: .85;
+      color: var(--cream);
+      text-shadow: 4px 4px 0 var(--black);
+      flex-shrink: 0;
+    }
+
+    .stmt-big .out {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 3px var(--cream);
+      text-shadow: none;
+    }
+
+    .stmt-right {
+      max-width: 530px;
+    }
+
+    .stmt-quote {
+      font-family: 'Caveat', cursive;
+      font-size: 1.85rem;
+      color: var(--black);
+      line-height: 1.35;
+      margin-bottom: 1rem;
+    }
+
+    .stmt-body {
+      font-size: .73rem;
+      line-height: 1.78;
+      color: var(--black);
+      opacity: .85;
+    }
+
+    .tools-strip {
+      background: var(--yellow);
+      border-bottom: 4px solid var(--black);
+      overflow: hidden;
+    }
+
+    .tools-track {
+      display: inline-flex;
+      animation: tick 18s linear infinite;
+      padding: 1rem 0;
+    }
+
+    .tool {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: .06em;
+      margin: 0 2rem;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+    }
+
+    .tool::after {
+      content: '✦';
+      color: var(--pink);
+    }
+
+    #skills {
+      padding: 5rem 2.5rem;
+      border-bottom: 4px solid var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #skills::before {
+      content: 'SKILLS';
+      position: absolute;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(8rem, 20vw, 18rem);
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(0, 0, 0, .045);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .sec-hd {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .sec-num {
+      font-size: .68rem;
+      letter-spacing: .18em;
+      color: var(--pink);
+      text-transform: uppercase;
+    }
+
+    .sec-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: .85;
+      display: block;
+      margin-bottom: 3.5rem;
+    }
+
+    .sec-title .out {
+      color: transparent;
+      -webkit-text-stroke: 3px var(--black);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 3px solid var(--black);
+    }
+
+    .sk {
+      padding: 2.2rem 2rem;
+      border: 1px solid var(--black);
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .sk:hover {
+      z-index: 2;
+      transform: scale(1.025);
+      box-shadow: 0 0 0 3px var(--black);
+    }
+
+    .sk:nth-child(1) {
+      background: var(--black);
+      color: var(--cream)
+    }
+
+    .sk:nth-child(2) {
+      background: var(--pink)
+    }
+
+    .sk:nth-child(3) {
+      background: var(--cream)
+    }
+
+    .sk:nth-child(4) {
+      background: var(--yellow)
+    }
+
+    .sk:nth-child(5) {
+      background: var(--lilac)
+    }
+
+    .sk:nth-child(6) {
+      background: var(--hot);
+      color: var(--cream)
+    }
+
+    .sk-num {
+      font-size: .6rem;
+      letter-spacing: .2em;
+      opacity: .4;
+      margin-bottom: .6rem;
+    }
+
+    .sk-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.7rem;
+      line-height: .9;
+      margin-bottom: .8rem;
+    }
+
+    .sk-desc {
+      font-size: .7rem;
+      line-height: 1.65;
+      opacity: .8;
+    }
+
+    .sk-dots {
+      display: flex;
+      gap: 5px;
+      margin-top: 1.2rem;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 2px solid currentColor;
+    }
+
+    .dot.on {
+      background: currentColor;
+    }
+
+    #creations {
+      background: var(--black);
+      padding: 5rem 2.5rem;
+      border-bottom: 4px solid var(--pink);
+    }
+
+    #creations .sec-title {
+      color: var(--cream);
+    }
+
+    #creations .sec-title .out {
+      -webkit-text-stroke: 3px var(--cream);
+    }
+
+    #creations .sec-num {
+      color: var(--yellow);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 260px;
+      gap: 3px;
+      margin-top: 3rem;
+    }
+
+    .gi {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid rgba(255, 245, 225, .1);
+      cursor: none;
+    }
+
+    .gi.tall {
+      grid-row: span 2;
+    }
+
+    .gi.wide {
+      grid-column: span 2;
+    }
+
+    .gi-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      transition: transform .5s ease;
+    }
+
+    .gi:hover .gi-bg {
+      transform: scale(1.08);
+    }
+
+    .gi-over {
+      position: absolute;
+      inset: 0;
+      background: var(--pink);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .gi:hover .gi-over {
+      opacity: 1;
+    }
+
+    .gi-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      line-height: .9;
+      color: var(--cream);
+      text-shadow: 3px 3px 0 var(--black);
+    }
+
+    .gi-tag {
+      font-size: .6rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-top: .4rem;
+    }
+
+    .c1 {
+      background: #1e0a14
+    }
+
+    .c2 {
+      background: #0d1a0d
+    }
+
+    .c3 {
+      background: #1a1a0a
+    }
+
+    .c4 {
+      background: #0a0a1a
+    }
+
+    .c5 {
+      background: #1a0a0a
+    }
+
+    .c6 {
+      background: #0a1a1a
+    }
+
+    .c7 {
+      background: #140a1e
+    }
+
+    /* ── GALLERY ITEM CLICKABLE ── */
+    .gi {
+      cursor: none;
+    }
+
+    .gi-click-hint {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--yellow);
+      color: var(--black);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: .8rem;
+      letter-spacing: .1em;
+      padding: 4px 10px;
+      border: 2px solid var(--black);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .3s ease, transform .3s ease;
+      z-index: 2;
+    }
+
+    .gi:hover .gi-click-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-left {
+      background: var(--yellow);
+      padding: 5rem 3rem;
+      border-right: 4px solid var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-left::after {
+      content: '?';
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20rem;
+      position: absolute;
+      bottom: -2rem;
+      right: 1rem;
+      color: transparent;
+      -webkit-text-stroke: 3px rgba(0, 0, 0, .07);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .contact-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: .82;
+      color: var(--black);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-big .out {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 3px var(--black);
+    }
+
+    .contact-sub {
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
+      color: var(--black);
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-right {
+      background: var(--cream);
+      padding: 5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    .cl {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--black);
+      font-size: .73rem;
+      letter-spacing: .05em;
+      border-bottom: 2px solid var(--black);
+      padding-bottom: .8rem;
+      transition: color .2s, padding-left .2s;
+      cursor: none;
+    }
+
+    .cl:hover {
+      color: var(--pink);
+      padding-left: 12px;
+    }
+
+    .cl-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--black);
+      color: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      flex-shrink: 0;
+      transition: background .2s;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .cl:hover .cl-icon {
+      background: var(--pink);
+    }
+
+    .email-strip {
+      background: var(--black);
+      overflow: hidden;
+      border-top: 4px solid var(--pink);
+      white-space: nowrap;
+    }
+
+    .email-track {
+      display: inline-flex;
+      animation: tick 14s linear infinite;
+      padding: 1.5rem 0;
+    }
+
+    .email-track span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--cream);
+      margin: 0 2rem;
+    }
+
+    .email-track .pk {
+      color: var(--pink);
+    }
+
+    footer {
+      background: var(--black);
+      color: rgba(255, 245, 225, .3);
+      font-size: .62rem;
+      letter-spacing: .1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2.5rem;
+      border-top: 2px solid rgba(255, 61, 139, .25);
+    }
+
+    footer em {
+      color: var(--pink);
+      font-style: normal;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.on {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(.88);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .detail-skills-wrap {
+      background: var(--black);
+      color: var(--cream);
+      padding: 4rem 2.5rem;
+      border-bottom: 4px solid var(--pink);
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .skills-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .detail-skills-wrap,
+      .skills-two-col {
+        grid-template-columns: 1fr !important;
+      }
+
+      .detail-skills-wrap {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .hero-main {
+        grid-template-columns: 1fr;
+      }
+
+      .id-card {
+        width: 100%;
+        max-width: 430px;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .id-img {
+        width: 100%;
+        height: 200px;
+        border: 3px solid var(--black);
+      }
+
+      .ctas {
+        width: 100%;
+        max-width: 430px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .statement {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gi.wide {
+        grid-column: span 1;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-left {
+        border-right: none;
+        border-bottom: 4px solid var(--black);
+      }
+    }
+
+    @media (max-width: 580px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 1rem 1.2rem;
+      }
+
+      .nav-links {
+        gap: .5rem;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+      }
+
+      .nav-links a {
+        font-size: 0.52rem;
+      }
+
+      .detail-nav {
+        padding: 1rem 1.2rem;
+      }
+    }
+
+    /* ════════════════════════════════════════
+       DETAIL PAGES
+    ════════════════════════════════════════ */
+    .page-main {
+      display: none;
+    }
+
+    .page-main.active {
+      display: block;
+    }
+
+    #home-page {
+      display: block;
+    }
+
+    #home-page.hidden {
+      display: none;
+    }
+
+    /* Detail page nav */
+    .detail-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 2.5rem;
+      border-bottom: 3px solid var(--black);
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: .06em;
+      text-decoration: none;
+      color: var(--black);
+      cursor: none;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: color .2s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--pink);
+    }
+
+    .back-arrow {
+      font-size: 1.4rem;
+    }
+
+    .detail-category-label {
+      font-size: .62rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--pink);
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* Detail page hero banner */
+    .detail-hero {
+      background: var(--black);
+      color: var(--cream);
+      padding: 4rem 2.5rem 3rem;
+      border-bottom: 4px solid var(--pink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-hero::before {
+      content: attr(data-emoji);
+      position: absolute;
+      right: 3rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12rem;
+      opacity: .08;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .detail-hero-kicker {
+      font-size: .62rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+
+    .detail-hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 8rem);
+      line-height: .85;
+      color: var(--cream);
+      text-shadow: 4px 4px 0 var(--pink);
+      position: relative;
+      z-index: 1;
+    }
+
+    .detail-hero-tags {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .detail-projet-tags {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+      color: var(--black);
+    }
+
+    .detail-tag {
+      font-size: .58rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border: 2px solid rgba(255, 245, 225, .3);
+      color: rgba(255, 245, 225, .7);
+      border-radius: 999px;
+    }
+
+    .detail-tag-noir {
+      font-size: .58rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border: 2px solid rgb(0, 0, 0);
+      color: var(--black);
+      border-radius: 999px;
+    }
+
+    /* ── Layout A: image gauche / texte droite ── */
+    .detail-layout-a {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 65vh;
+      border-bottom: 4px solid var(--black);
+    }
+
+    .detail-layout-a .img-side {
+      background: var(--lilac);
+      border-right: 4px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-layout-a .text-side {
+      padding: 4rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── Layout B: texte gauche / image droite ── */
+    .detail-layout-b {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 65vh;
+      border-bottom: 4px solid var(--black);
+    }
+
+    .detail-layout-b .text-side {
+      padding: 4rem 3rem;
+      background-color: #d4c7d5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 4px solid var(--black);
+    }
+
+    .detail-layout-b .img-side {
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── Layout C: grande image haut / texte bas ── */
+    .detail-layout-c .img-top {
+      background: var(--pink);
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 3rem;
+      border-bottom: 4px solid var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-layout-c .text-bottom {
+      padding: 4rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      border-bottom: 4px solid var(--black);
+    }
+
+    /* ── Layout D: pleine largeur asymétrique ── */
+    .detail-layout-d {
+      display: grid;
+      grid-template-columns: 1.9fr 1.1fr;
+      min-height: 65vh;
+      border-bottom: 4px solid var(--black);
+    }
+
+    .detail-layout-d .img-side {
+      background: var(--black);
+      border-right: 4px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-layout-d .text-side {
+      padding: 4rem 3rem;
+      background: var(--hot);
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── Layout E: texte centré + image droite étroite ── */
+    .detail-layout-e {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      min-height: 65vh;
+      border-bottom: 4px solid var(--black);
+    }
+
+    .detail-layout-e .text-side {
+      padding: 4rem 3rem;
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 4px solid var(--black);
+    }
+
+    .detail-layout-e .img-side {
+      background: var(--lilac);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-layout-m {
+      display: grid;
+      grid-template-columns: 1.9fr 1.1fr;
+      min-height: 65vh;
+      border-bottom: 4px solid var(--black);
+      background-color: #d4c7d5;
+    }
+
+    .detail-layout-m .img-side {
+      background: var(--black);
+      border-right: 4px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-layout-m .text-side {
+      padding: 4rem 3rem;
+      background: var(--hot);
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── Layout F: image gauche large ── */
+    .detail-layout-f {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      min-height: 65vh;
+      border-bottom: 4px solid var(--black);
+    }
+
+    .detail-layout-f .img-side {
+      background: var(--yellow);
+      border-right: 4px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-layout-f .text-side {
+      padding: 4rem 3rem;
+      background: var(--black);
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── Layout G: mosaïque 3 colonnes ── */
+    .detail-layout-g {
+      border-bottom: 4px solid var(--black);
+    }
+
+    .detail-layout-g .mosaic-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 50vh;
+    }
+
+    .detail-layout-g .img-main {
+      background: var(--lilac);
+      border-right: 4px solid var(--black);
+      border-bottom: 4px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-layout-g .img-secondary {
+      background: var(--pink);
+      border-bottom: 4px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-layout-g .text-bottom-g {
+      padding: 3.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    /* Shared image placeholder */
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      max-width: 500px;
+      background: rgba(0, 0, 0, .08);
+      border: 3px dashed rgba(0, 0, 0, .2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .8rem;
+      border-radius: 4px;
+    }
+
+    .detail-layout-g .img-placeholder {
+      max-width: none;
+      aspect-ratio: auto;
+      background: none;
+      border: none;
+    }
+
+    .detail-layout-g .img-main img,
+    .detail-layout-g .img-secondary img {
+      width: 100%;
+      max-width: none;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .img-placeholder-dark {
+      background: rgba(255, 255, 255, .06);
+      border-color: rgba(255, 255, 255, .2);
+    }
+
+    .img-placeholder-icon {
+      font-size: 3rem;
+      opacity: .4;
+    }
+
+    .img-placeholder-label {
+      font-size: .6rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      opacity: .45;
+      text-align: center;
+    }
+
+    .img-placeholder-label-dark {
+      color: rgba(255, 255, 255, .5);
+    }
+
+    /* Detail text elements */
+    .detail-section-label {
+      font-size: .58rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 1rem;
+    }
+
+    .detail-section-label-light {
+      color: var(--yellow);
+    }
+
+    .detail-h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: .88;
+      margin-bottom: 1.2rem;
+      color: var(--black);
+    }
+
+    .detail-h2-light {
+      color: var(--cream);
+    }
+
+    .detail-body {
+      font-size: .73rem;
+      line-height: 1.78;
+      opacity: .8;
+    }
+
+    .detail-body p+p {
+      margin-top: .9rem;
+    }
+
+    .detail-highlight {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      background: var(--yellow);
+      color: var(--black);
+      border: 3px solid var(--black);
+      padding: 4px 14px;
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      max-width: 100%;
+      white-space: nowrap;
+      transform: rotate(-1deg);
+      box-shadow: 3px 3px 0 var(--black);
+      margin: 1rem 0;
+    }
+
+    /* Second content block (extra images row) */
+    .detail-extras {
+      padding: 3rem 2.5rem;
+      border-bottom: 4px solid var(--black);
+      background: var(--cream);
+    }
+
+    .detail-extras-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: .04em;
+      margin-bottom: 1.5rem;
+      color: var(--black);
+    }
+
+    .detail-extras-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .detail-extra-item {
+      background: #ffde59;
+      border: 3px solid var(--black);
+      border-radius: 2px;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: .5rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .extra-item img {
+      margin: 0;
+      padding: 2rem;
+      align-items: center;
+    }
+
+    .detail-extra-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .detail-extra-item:nth-child(2) {
+      background: #ffde59;
+    }
+
+    .detail-extra-item:nth-child(3) {
+      background: #ffde59;
+    }
+
+    @media (max-width: 900px) {
+
+      .detail-layout-a,
+      .detail-layout-b,
+      .detail-layout-d,
+      .detail-layout-e,
+      .detail-layout-f {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-layout-a .img-side,
+      .detail-layout-b .text-side,
+      .detail-layout-d .img-side,
+      .detail-layout-e .text-side,
+      .detail-layout-f .img-side {
+        border-right: none;
+        border-bottom: 4px solid var(--black);
+        min-height: 40vh;
+      }
+
+      .detail-layout-c .text-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-layout-g .mosaic-top {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-layout-g .img-main {
+        border-right: none;
+      }
+
+      .detail-layout-g .text-bottom-g {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-extras-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .detail-extras-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cur">
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M20.000,2.000 L24.114,14.337 L37.119,14.438 L26.657,22.163 L30.580,34.562 L20.000,27.000 L9.420,34.562 L13.343,22.163 L2.881,14.438 L15.886,14.337 Z"
+        fill="#FF3D8B" stroke="#FF3D8B" stroke-width="1" stroke-linejoin="round" />
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+     NAV (partagée)
+═══════════════════════════════════════ -->
+  <nav id="main-nav">
+    <a class="logo" href="#" onclick="showHome(); return false;">Portfolio<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="#about" onclick="showHome('about'); return false;">À propos</a></li>
+      <li><a href="#skills" onclick="showHome('skills'); return false;">Compétences</a></li>
+      <li><a href="#creations" onclick="showHome('creations'); return false;">Créations</a></li>
+      <li><a href="#contact" onclick="showHome('contact'); return false;">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+     PAGE PRINCIPALE
+═══════════════════════════════════════ -->
+  <div id="home-page">
+
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <svg class="lace-top" viewBox="0 0 1440 60" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true">
+        <line x1="0" y1="30" x2="1440" y2="30" stroke="#FF3D8B" stroke-width=".8" opacity=".4" />
+        <path
+          d="M36.000,12.000 L40.114,24.337 L53.119,24.438 L42.657,32.163 L46.580,44.562 L36.000,37.000 L25.420,44.562 L29.343,32.163 L18.881,24.438 L31.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M72.000,22.000 L73.763,27.573 L79.608,27.528 L74.853,30.927 L76.702,36.472 L72.000,33.000 L67.298,36.472 L69.147,30.927 L64.392,27.528 L70.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M108.000,12.000 L112.114,24.337 L125.119,24.438 L114.657,32.163 L118.580,44.562 L108.000,37.000 L97.420,44.562 L101.343,32.163 L90.881,24.438 L103.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M144.000,22.000 L145.763,27.573 L151.608,27.528 L146.853,30.927 L148.702,36.472 L144.000,33.000 L139.298,36.472 L141.147,30.927 L136.392,27.528 L142.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M180.000,12.000 L184.114,24.337 L197.119,24.438 L186.657,32.163 L190.580,44.562 L180.000,37.000 L169.420,44.562 L173.343,32.163 L162.881,24.438 L175.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M216.000,22.000 L217.763,27.573 L223.608,27.528 L218.853,30.927 L220.702,36.472 L216.000,33.000 L211.298,36.472 L213.147,30.927 L208.392,27.528 L214.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M252.000,12.000 L256.114,24.337 L269.119,24.438 L258.657,32.163 L262.580,44.562 L252.000,37.000 L241.420,44.562 L245.343,32.163 L234.881,24.438 L247.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M288.000,22.000 L289.763,27.573 L295.608,27.528 L290.853,30.927 L292.702,36.472 L288.000,33.000 L283.298,36.472 L285.147,30.927 L280.392,27.528 L286.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M324.000,12.000 L328.114,24.337 L341.119,24.438 L330.657,32.163 L334.580,44.562 L324.000,37.000 L313.420,44.562 L317.343,32.163 L306.881,24.438 L319.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M360.000,22.000 L361.763,27.573 L367.608,27.528 L362.853,30.927 L364.702,36.472 L360.000,33.000 L355.298,36.472 L357.147,30.927 L352.392,27.528 L358.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M396.000,12.000 L400.114,24.337 L413.119,24.438 L402.657,32.163 L406.580,44.562 L396.000,37.000 L385.420,44.562 L389.343,32.163 L378.881,24.438 L391.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M432.000,22.000 L433.763,27.573 L439.608,27.528 L434.853,30.927 L436.702,36.472 L432.000,33.000 L427.298,36.472 L429.147,30.927 L424.392,27.528 L430.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M468.000,12.000 L472.114,24.337 L485.119,24.438 L474.657,32.163 L478.580,44.562 L468.000,37.000 L457.420,44.562 L461.343,32.163 L450.881,24.438 L463.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M504.000,22.000 L505.763,27.573 L511.608,27.528 L506.853,30.927 L508.702,36.472 L504.000,33.000 L499.298,36.472 L501.147,30.927 L496.392,27.528 L502.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M540.000,12.000 L544.114,24.337 L557.119,24.438 L546.657,32.163 L550.580,44.562 L540.000,37.000 L529.420,44.562 L533.343,32.163 L522.881,24.438 L535.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M576.000,22.000 L577.763,27.573 L583.608,27.528 L578.853,30.927 L580.702,36.472 L576.000,33.000 L571.298,36.472 L573.147,30.927 L568.392,27.528 L574.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M612.000,12.000 L616.114,24.337 L629.119,24.438 L618.657,32.163 L622.580,44.562 L612.000,37.000 L601.420,44.562 L605.343,32.163 L594.881,24.438 L607.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M648.000,22.000 L649.763,27.573 L655.608,27.528 L650.853,30.927 L652.702,36.472 L648.000,33.000 L643.298,36.472 L645.147,30.927 L640.392,27.528 L646.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M684.000,12.000 L688.114,24.337 L701.119,24.438 L690.657,32.163 L694.580,44.562 L684.000,37.000 L673.420,44.562 L677.343,32.163 L666.881,24.438 L679.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M720.000,22.000 L721.763,27.573 L727.608,27.528 L722.853,30.927 L724.702,36.472 L720.000,33.000 L715.298,36.472 L717.147,30.927 L712.392,27.528 L718.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M756.000,12.000 L760.114,24.337 L773.119,24.438 L762.657,32.163 L766.580,44.562 L756.000,37.000 L745.420,44.562 L749.343,32.163 L738.881,24.438 L751.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M792.000,22.000 L793.763,27.573 L799.608,27.528 L794.853,30.927 L796.702,36.472 L792.000,33.000 L787.298,36.472 L789.147,30.927 L784.392,27.528 L790.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M828.000,12.000 L832.114,24.337 L845.119,24.438 L834.657,32.163 L838.580,44.562 L828.000,37.000 L817.420,44.562 L821.343,32.163 L810.881,24.438 L823.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M864.000,22.000 L865.763,27.573 L871.608,27.528 L866.853,30.927 L868.702,36.472 L864.000,33.000 L859.298,36.472 L861.147,30.927 L856.392,27.528 L862.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M900.000,12.000 L904.114,24.337 L917.119,24.438 L906.657,32.163 L910.580,44.562 L900.000,37.000 L889.420,44.562 L893.343,32.163 L882.881,24.438 L895.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M936.000,22.000 L937.763,27.573 L943.608,27.528 L938.853,30.927 L940.702,36.472 L936.000,33.000 L931.298,36.472 L933.147,30.927 L928.392,27.528 L934.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M972.000,12.000 L976.114,24.337 L989.119,24.438 L978.657,32.163 L982.580,44.562 L972.000,37.000 L961.420,44.562 L965.343,32.163 L954.881,24.438 L967.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M1008.000,22.000 L1009.763,27.573 L1015.608,27.528 L1010.853,30.927 L1012.702,36.472 L1008.000,33.000 L1003.298,36.472 L1005.147,30.927 L1000.392,27.528 L1006.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M1044.000,12.000 L1048.114,24.337 L1061.119,24.438 L1050.657,32.163 L1054.580,44.562 L1044.000,37.000 L1033.420,44.562 L1037.343,32.163 L1026.881,24.438 L1039.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M1080.000,22.000 L1081.763,27.573 L1087.608,27.528 L1082.853,30.927 L1084.702,36.472 L1080.000,33.000 L1075.298,36.472 L1077.147,30.927 L1072.392,27.528 L1078.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M1116.000,12.000 L1120.114,24.337 L1133.119,24.438 L1122.657,32.163 L1126.580,44.562 L1116.000,37.000 L1105.420,44.562 L1109.343,32.163 L1098.881,24.438 L1111.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M1152.000,22.000 L1153.763,27.573 L1159.608,27.528 L1154.853,30.927 L1156.702,36.472 L1152.000,33.000 L1147.298,36.472 L1149.147,30.927 L1144.392,27.528 L1150.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M1188.000,12.000 L1192.114,24.337 L1205.119,24.438 L1194.657,32.163 L1198.580,44.562 L1188.000,37.000 L1177.420,44.562 L1181.343,32.163 L1170.881,24.438 L1183.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M1224.000,22.000 L1225.763,27.573 L1231.608,27.528 L1226.853,30.927 L1228.702,36.472 L1224.000,33.000 L1219.298,36.472 L1221.147,30.927 L1216.392,27.528 L1222.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M1260.000,12.000 L1264.114,24.337 L1277.119,24.438 L1266.657,32.163 L1270.580,44.562 L1260.000,37.000 L1249.420,44.562 L1253.343,32.163 L1242.881,24.438 L1255.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M1296.000,22.000 L1297.763,27.573 L1303.608,27.528 L1298.853,30.927 L1300.702,36.472 L1296.000,33.000 L1291.298,36.472 L1293.147,30.927 L1288.392,27.528 L1294.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M1332.000,12.000 L1336.114,24.337 L1349.119,24.438 L1338.657,32.163 L1342.580,44.562 L1332.000,37.000 L1321.420,44.562 L1325.343,32.163 L1314.881,24.438 L1327.886,24.337 Z"
+          fill="#FF3D8B" />
+        <path
+          d="M1368.000,22.000 L1369.763,27.573 L1375.608,27.528 L1370.853,30.927 L1372.702,36.472 L1368.000,33.000 L1363.298,36.472 L1365.147,30.927 L1360.392,27.528 L1366.237,27.573 Z"
+          fill="#FF3D8B" opacity=".6" />
+        <path
+          d="M1404.000,12.000 L1408.114,24.337 L1421.119,24.438 L1410.657,32.163 L1414.580,44.562 L1404.000,37.000 L1393.420,44.562 L1397.343,32.163 L1386.881,24.438 L1399.886,24.337 Z"
+          fill="#FF3D8B" />
+      </svg>
+
+      <div class="hero-top">
+        <div class="hero-badge">Portfolio — 2026</div>
+      </div>
+
+      <div class="hero-main">
+        <div class="hero-title-block">
+          <div class="deco s1">✦</div>
+          <div class="deco s2">★</div>
+          <h1 class="hero-title">
+            <span class="l1">Laura</span>
+            <span class="l2">Cocq</span>
+            <span class="l3">Duché</span>
+          </h1>
+          <div class="hero-sub">Étudiante en communication</div>
+          <div class="pills">
+            <span class="pill pill-black">Audiovisuel</span>
+            <span class="pill pill-pink">Social Media</span>
+            <span class="pill pill-lilac">UI / UX</span>
+            <span class="pill pill-out">Print</span>
+          </div>
+        </div>
+        <div class="hero-card-wrap">
+          <div class="id-card">
+            <img class="id-img" src="img-laura.jpg" alt="Laura COCQ--Duché" />
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+              <div class="id-info">
+                <div class="id-name">Laura<br>COCQ--Duché</div>
+                <div class="id-role">✦ BUT Information - Communication</div>
+                <p class="id-desc">La communication me passionne par sa richesse et sa diversité. Elle repose sur un
+                  équilibre essentiel entre créativité, organisation et stratégie. Au fil de mon parcours, j'ai
+                  développé une appétence pour des formats variés, avec l'envie constante d'explorer et de m'adapter.
+                  Aujourd'hui, mon objectif est de construire un profil polyvalent, capable de répondre à des projets
+                  aux enjeux différents.</p>
+              </div>
+              <div class="id-bar">||| |||| | || ||| | |||| |||| | || ||| | |||| |||| | |||</div>
+            </div>
+          </div>
+          <div class="ctas">
+            <a class="btn btn-yellow" href="#skills" onclick="showHome('skills'); return false;"><span
+                class="btn-inner">→ Mes compétences</span></a>
+            <a class="btn btn-pink" href="#creations" onclick="showHome('creations'); return false;"><span
+                class="btn-inner">→ Mes créations</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement">
+      <div class="stmt-big">Mon<br><span class="out">Parcours</span></div>
+      <div class="stmt-right">
+        <p class="stmt-quote">"Les idées naissent floues, je les rends visibles."</p>
+        <p class="stmt-body">En 2023, après l'optention de mon bac général avec mention très bien,
+          je me suis lancée dans le BUT Information-Communication parcours
+          Information Numérique dans les organisations de l'IUT Bordeaux
+          Montaigne. De nature curieuse et créative, cette formation m'a permis de développer mes compétences dans de
+          nombreux
+          domaines : rédaction, audiovisuel, graphisme, développement web,
+          veille, OSINT, marketing, et bien d'autres encore. À la fois pluridisciplinaire et
+          professionnalisante, elle m'a permis d'élargir mon champ de
+          connaissances grâce à des projets concrets et à des stages tutorés.</p>
+      </div>
+    </section>
+
+    <div class="tools-strip">
+      <div class="tools-track">
+        <div class="tool">Figma</div>
+        <div class="tool">Illustrator</div>
+        <div class="tool">Photoshop</div>
+        <div class="tool">After Effects</div>
+        <div class="tool">Canva</div>
+        <div class="tool">Capcut</div>
+        <div class="tool">HTML/CSS</div>
+        <div class="tool">InDesign</div>
+        <div class="tool">Premiere Pro</div>
+        <div class="tool">Figma</div>
+        <div class="tool">Illustrator</div>
+        <div class="tool">Photoshop</div>
+        <div class="tool">After Effects</div>
+        <div class="tool">Canva</div>
+        <div class="tool">Capcut</div>
+        <div class="tool">HTML/CSS</div>
+        <div class="tool">InDesign</div>
+        <div class="tool">Premiere Pro</div>
+      </div>
+    </div>
+
+    <section id="skills">
+      <h2 class="sec-title reveal">MES <span class="out">SKILLS</span></h2>
+      <div class="skills-grid">
+        <div class="sk">
+          <div class="sk-name">Identité<br>Visuelle</div>
+          <p class="sk-desc">Conception de logos, élaboration de chartes graphiques et développement de systèmes de
+            marque cohérents, pensés pour être reconnaissables, durables et adaptés à différents supports.</p>
+        </div>
+        <div class="sk">
+          <div class="sk-name">Social<br>Media</div>
+          <p class="sk-desc">Réalisation de contenus pour les réseaux sociaux, pensés pour renforcer l'image de marque,
+            la cohérence visuelle et l'engagement.</p>
+        </div>
+        <div class="sk">
+          <div class="sk-name">Analyse de<br>l'information</div>
+          <p class="sk-desc">Collecte, vérification et hiérarchisation de l'information pour produire des contenus
+            clairs et structurés.</p>
+        </div>
+        <div class="sk">
+          <div class="sk-name">UI/UX<br>Design</div>
+          <p class="sk-desc">Conception d'interfaces web et mobiles centrées utilisateur : réalisation de maquettes sur
+            Figma, réflexion sur les parcours utilisateurs et optimisation de l'expérience globale.</p>
+        </div>
+        <div class="sk">
+          <div class="sk-name">Print &amp;<br>Affiche</div>
+          <p class="sk-desc">Création de supports imprimés : affiches, flyers et brochures, en portant une attention
+            particulière à l'impact visuel, à la lisibilité et à l'adaptation aux contraintes d'impression.</p>
+        </div>
+        <div class="sk">
+          <div class="sk-name">Création<br>audiovisuelle</div>
+          <p class="sk-desc">Réalisation de contenus vidéo : animations graphiques, courts métrages et vidéos
+            publicitaires, en mettant l'accent sur le storytelling, le rythme et l'adaptation aux formats digitaux.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="creations">
+      <h2 class="sec-title reveal">MES <span class="out">CRÉATIONS</span></h2>
+      <div class="gallery">
+        <div class="gi tall c1" onclick="showPage('c1')">
+          <div class="gi-bg">🖼️</div>
+          <div class="gi-over">
+            <div class="gi-title">Brand<br>Identity</div>
+            <div class="gi-tag">Logotype · Charte · Couleurs</div>
+          </div>
+          <div class="gi-click-hint">Voir →</div>
+        </div>
+        <div class="gi c2" onclick="showPage('c2')">
+          <div class="gi-bg">✏️</div>
+          <div class="gi-over">
+            <div class="gi-title">Editorial</div>
+            <div class="gi-tag">Mise en page · Typo · Rédaction</div>
+          </div>
+          <div class="gi-click-hint">Voir →</div>
+        </div>
+        <div class="gi c3" onclick="showPage('c3')">
+          <div class="gi-bg">🖨️</div>
+          <div class="gi-over">
+            <div class="gi-title">Design Graphique</div>
+            <div class="gi-tag">Affiche · Mockup · Datavisualisation</div>
+          </div>
+          <div class="gi-click-hint">Voir →</div>
+        </div>
+        <div class="gi wide c4" onclick="showPage('c4')">
+          <div class="gi-bg">📱</div>
+          <div class="gi-over">
+            <div class="gi-title">Réseaux Sociaux</div>
+            <div class="gi-tag">Stratégie · Contenu</div>
+          </div>
+          <div class="gi-click-hint">Voir →</div>
+        </div>
+        <div class="gi c5" onclick="showPage('c5')">
+          <div class="gi-bg">🔧</div>
+          <div class="gi-over">
+            <div class="gi-title">Web design & Développement</div>
+            <div class="gi-tag">Web · App · Prototype</div>
+          </div>
+          <div class="gi-click-hint">Voir →</div>
+        </div>
+        <div class="gi c6" onclick="showPage('c6')">
+          <div class="gi-bg">🎞️</div>
+          <div class="gi-over">
+            <div class="gi-title">Audiovisuel</div>
+            <div class="gi-tag">Animation · Publicité · Vidéo</div>
+          </div>
+          <div class="gi-click-hint">Voir →</div>
+        </div>
+        <div class="gi c7" onclick="showPage('c7')">
+          <div class="gi-bg">🔍</div>
+          <div class="gi-over">
+            <div class="gi-title">OSINT</div>
+            <div class="gi-tag">Recherche · Données</div>
+          </div>
+          <div class="gi-click-hint">Voir →</div>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem;text-align:center;">
+        <a class="btn btn-pink" href="#contact" onclick="showHome('contact'); return false;"
+          style="display:inline-block;max-width:340px;"><span class="btn-inner">→ Contactez-moi</span></a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-grid">
+        <div class="contact-left reveal">
+          <div class="contact-big">Besoin<br><span>de plus</span><br>d'informations ?</div>
+          <p class="contact-sub">Contactez-moi<br>→</p>
+        </div>
+        <div class="contact-right reveal">
+          <a class="cl" href="mailto:l.cocqduche@gmail.com">
+            <div class="cl-icon">✉</div>l.cocqduche@gmail.com
+          </a>
+          <a class="cl" href="https://www.linkedin.com/in/laura-cocq-duché-279074298" target="_blank">
+            <div class="cl-icon">in</div>LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2026 <em>Laura Cocq--Duché</em> — Tous droits réservés</div>
+      <div>Design &amp; Code — <em>Laura Cocq--Duché</em></div>
+    </footer>
+
+  </div><!-- /home-page -->
+
+
+  <!-- ═══════════════════════════════════════
+     PAGES DÉTAIL
+═══════════════════════════════════════ -->
+
+  <!-- ── PAGE C1 : Brand Identity — CASALI ── -->
+  <div id="page-c1" class="page-main">
+    <div class="detail-hero" data-emoji="🖼️">
+      <h1 class="detail-hero-title">Brand<br>Identity</h1>
+      <div class="detail-hero-tags">
+        <span class="detail-tag">Logotype</span>
+        <span class="detail-tag">Charte graphique</span>
+        <span class="detail-tag">Couleurs</span>
+        <span class="detail-tag">Typographie</span>
+        <span class="detail-tag">Direction artistique</span>
+      </div>
+    </div>
+
+    <!-- Bloc intro : image montre gauche / texte description droite -->
+    <div class="detail-layout-a">
+      <div class="img-side" style="background:#1a1a1a; padding:0; overflow:hidden;">
+        <img src="brand identity/casali watch/casali.png" alt="Image de présentation du projet CASALI"
+          style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="text-side">
+        <div class="detail-section-label">Description du projet</div>
+        <h2 class="detail-h2">CASALI —<br>De zéro à<br>l'identité</h2>
+        <div class="detail-highlight">Marque de montres émergeante</div>
+        <div class="detail-body">
+          <p>J'ai accompagné le lancement d'une marque de montres en construisant son identité visuelle à partir de
+            zéro, en m'appuyant uniquement sur son nom. En collaboration avec le dirigeant, j'ai défini une charte
+            graphique complète, reflétant un positionnement haut de gamme : logo épuré conçu sur Adobe Illustrator,
+            palette de couleurs sobres et élégantes, typographie soignée.</p>
+          <p>J'ai ensuite décliné cette identité sur l'ensemble des supports : réseaux sociaux, goodies, packaging et
+            site web, en veillant à la cohérence et à la qualité visuelle. Pour les visuels statiques, j'ai utilisé
+            Adobe Photoshop pour les retouches et Canva pour les templates rapides. Les vidéos et animations ont été
+            réalisées avec Adobe After Effects et CapCut pour le montage dynamique.</p>
+          <p>Pour renforcer la présence digitale, j'ai conçu des contenus variés et participé activement à l'animation
+            des réseaux sociaux, tout en contribuant à la création des visuels du site pour une expérience utilisateur
+            immersive.</p>
+        </div>
+        <div class="detail-projet-tags" style="margin-top:1.2rem;">
+          <span class="detail-tag-noir">Adobe Illustrator</span>
+          <span class="detail-tag-noir">Photoshop</span>
+          <span class="detail-tag-noir">After Effects</span>
+          <span class="detail-tag-noir">Canva</span>
+          <span class="detail-tag-noir">CapCut</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloc compétences + charte graphique côte à côte -->
+    <div class="detail-skills-wrap">
+      <!-- Compétences à gauche -->
+      <div>
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
+        <div class="skills-two-col">
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Direction artistique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création d'une identité visuelle complète, du
+              concept à la réalisation.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Conception graphique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Élaboration de chartes graphiques et design de
+              logos adaptés aux valeurs des marques.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Déclinaison multi-supports</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Adaptation cohérente de l'identité sur tous les
+              médias : digital, print, goodies, produits.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              04</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Production de contenus</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création de visuels variés (photos, vidéos,
+              animations) pour les réseaux sociaux et le web.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--lilac); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--lilac); margin-bottom:.4rem;">
+              05</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Communication digitale</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Animation des réseaux sociaux et mise en avant
+              des visuels pour renforcer l'engagement.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--lilac); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--lilac); margin-bottom:.4rem;">
+              06</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Design web</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Conception de visuels adaptés aux interfaces
+              digitales : site web, bannières, etc.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--hot); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--hot); margin-bottom:.4rem;">
+              07</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Maîtrise des outils</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Utilisation avancée d'Adobe Illustrator,
+              Photoshop, After Effects, Canva et CapCut.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--hot); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--hot); margin-bottom:.4rem;">
+              08</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Collaboration client</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Travail en étroite collaboration pour affiner
+              le positionnement et les attentes de la marque.</div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Charte graphique à droite -->
+      <div style="position:sticky; top:6rem;">
+        <div
+          style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:1rem;">
+          Charte graphique</div>
+        <img src="brand identity/casali watch/casali-identity.png" alt="Image de présentation du projet CASALI"
+          style="width:100%; height:100%; object-fit:cover;">
+        <div
+          style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-top:.8rem; opacity:.6; text-align:center;">
+          Logo · Typographie · Couleurs</div>
+      </div>
+    </div>
+
+    <!-- Bloc intro : image identity gauche / texte description droite -->
+    <div class="detail-layout-a">
+      <div class="img-side" style="background:#1a1a1a; padding:0; overflow:hidden;">
+        <div
+          style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:1rem;">
+          Charte graphique</div>
+        <img src="brand identity/femaura/femaura.png" alt="Image de présentation du projet FEMAURA"
+          style="width:auto; height:100%; max-height:550px; object-fit:cover;">
+        <div
+          style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-top:.8rem; opacity:.6; text-align:center;">
+          Logo · Typographie · Couleurs</div>
+
+      </div>
+      <div class="text-side">
+        <div class="detail-section-label">Description du projet</div>
+        <h2 class="detail-h2">FEMAURA —<br>De zéro à<br>l'identité</h2>
+        <div class="detail-highlight">Magazine mode et culture</div>
+        <div class="detail-body">
+          <p>Dans le cadre d’un projet fictif, j’ai imaginé et développé l’identité visuelle d’un magazine en ligne
+            dédié au féminisme, à la spiritualité et à la mode. Mon objectif était de créer une charte graphique qui
+            parle directement au lecteur, avec une identité forte.</p>
+          <p>J’ai opté pour une palette dominée par le violet, couleur emblématique des luttes féministes, que j’ai
+            associée à des nuances douces pour évoquer la spiritualité. Pour le logo et les visuels, j’ai travaillé sur
+            Adobe Illustrator, tandis que les maquettes et les templates pour les réseaux sociaux ont été réalisés avec
+            Canva et Adobe Photoshop.</p>
+          <p>Pour renforcer l’engagement, j’ai sélectionné une typographie percutante et moderne, reflétant à la fois la
+            détermination et l’ouverture d’esprit du magazine. Chaque élément a été pensé pour transmettre une identité
+            cohérente, à la fois militante et esthétique, sur tous les supports : logo, site web, réseaux sociaux et
+            visuels éditoriaux.</p>
+        </div>
+        <div class="detail-projet-tags" style="margin-top:1.2rem;">
+          <span class="detail-tag-noir">Adobe Illustrator</span>
+          <span class="detail-tag-noir">Photoshop</span>
+          <span class="detail-tag-noir">Canva</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloc compétences + publication côte à côte -->
+    <div class="detail-skills-wrap">
+      <!-- Compétences à gauche -->
+      <div>
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
+        <div class="skills-two-col">
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Conception graphique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création d’une charte graphique complète
+              (couleurs, typographie, logo).</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Maîtrise des outils de design</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Adobe Illustrator, Photoshop, Canva</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Déclinaison multi-supports</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Adapter une identité visuelle sur différents
+              supports (site web, réseaux sociaux).</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              04</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Stratégie</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Réflexion sur l’image de marque et son
+              positionnement.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Charte graphique à droite -->
+      <div style="position:sticky; top:6rem;">
+        <div style="position:relative; height:400px; margin:1rem 0;">
+          <!-- Image centre (4.png) -->
+          <img src="brand identity/femaura/post-femaura/4.png" alt="Image 4"
+            style="position:absolute; width:280px; height:auto; top:-40px; left:50%; transform:translateX(-50%); z-index:3; border:3px solid var(--black); box-shadow:4px 4px 0 var(--black);">
+          <!-- Image gauche (5.png) -->
+          <img src="brand identity/femaura/post-femaura/5.png" alt="Image 5"
+            style="position:absolute; width:140px; height:auto; top:120px; left:-20px; transform:rotate(-12deg); z-index:1; border:3px solid var(--black); box-shadow:3px 3px 0 var(--black);">
+          <!-- Image droite (6.png) -->
+          <img src="brand identity/femaura/post-femaura/6.png" alt="Image 6"
+            style="position:absolute; width:140px; height:auto; top:120px; right:-20px; transform:rotate(12deg); z-index:1; border:3px solid var(--black); box-shadow:3px 3px 0 var(--black);">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── PAGE C2 : Editorial — Layout B (texte gauche / image droite) ── -->
+  <div id="page-c2" class="page-main">
+    <div class="detail-hero" data-emoji="✏️">
+      <h1 class="detail-hero-title">Editorial</h1>
+      <div class="detail-hero-tags">
+        <span class="detail-tag">Mise en page</span>
+        <span class="detail-tag">Typographie</span>
+        <span class="detail-tag">Rédaction</span>
+      </div>
+    </div>
+
+    <!-- Layout B : image centrée / texte gauche + compétences droite -->
+    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div style="grid-column:1 / -1; display:flex; justify-content:center; padding:3rem 0;">
+        <img src="Edito/fortnitemagazine.jpg" alt="Fortnite Magazine"
+          style="width:100%; max-width:700px; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
+      </div>
+      <div class="text-side">
+        <h2 class="detail-h2">Page de magazine<br>Fortnite</h2>
+        <div class="detail-projet-tags">
+          <span class="detail-tag-noir">InDesign</span>
+          <span class="detail-tag-noir">Photoshop</span>
+        </div>
+        <div class="detail-highlight">Contenu à la fois visuel et impactant.</div>
+        <div class="detail-body">
+          <p>Pour ce projet, j’ai imaginé et conçu une double page magazine autour de Fortnite, avec l’envie de sortir
+            des clichés du jeu vidéo "classique".
+            Mon idée ? Montrer que Fortnite est bien plus qu’un simple jeu : c’est un vrai phénomène culturel, social et
+            même artistique.
+          </p>
+          <p>J’ai commencé par réfléchir à un angle éditorial qui parle aux jeunes, tout en restant pertinent et
+            original. J’ai ensuite structuré ma double page pour qu’elle soit à la fois attractive et claire :
+            hiérarchisation des infos, accroches percutantes et un ton dynamique qui colle à l’univers de Fortnite. </p>
+          <p>Côté graphique, j’ai travaillé sur Adobe InDesign pour la mise en page et Adobe Photoshop pour les
+            retouches et les montages des visuels. J’ai misé sur une mise en page immersive, avec des personnages en
+            grand format qui s’étendent sur toute la double page, des couleurs vives inspirées de l’univers du jeu, et
+            un équilibre entre textes et images pour garder le lecteur accroché.</p>
+          <p>L’objectif était de créer une double page qui donne envie de s’y plonger, tout en montrant que Fortnite
+            peut être abordé de manière sérieuse et créative. </p>
+        </div>
+      </div>
+      <div class="detail-extras"
+        style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
+        <div class="skills-two-col">
+
+          <div style="border-left:3px  solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Réflexion éditoriale</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Recherche d’angles originaux et pertinents pour
+              traiter un sujet grand public.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Structuration de contenu</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Hiérarchisation de l’information et création
+              d’accroches adaptées à la cible jeune.</div>
+          </div>
+
+          <div style="border-left:3px  solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Rédaction et ton</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Adoption d’un style accessible, dynamique et
+              engageant.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              04</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Mise en page créative</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Conception de doubles pages immersives avec
+              équilibre entre textes et visuels.</div>
+          </div>
+
+          <div style="border-left:3px  solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              05</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Design graphique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Intégration de visuels impactants (personnages,
+              couleurs vives) pour renforcer l’immersion.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              06</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Adaptation à la cible</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création d’un contenu visuel et textuel en
+              phase avec les attentes d’un public jeune.</div>
+          </div>
+
+          <div style="border-left:3px  solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              07</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Maîtrise des outils</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Utilisation de logiciels de mise en page
+              (InDesign, Photoshop, etc.).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div style="grid-column:1 / -1; display:flex; justify-content:center; padding:5rem 0; width: 100%;">
+        <div style="display:flex; justify-content:center; align-items:center; position:relative; height:400px; width: 100%; max-width: 1000px;">
+          <img src="Edito/bleuet2.png" alt="Bleuet 2"
+            style="width:400px; height:auto; position:absolute; left:50%; transform:translateX(-50%); z-index:2; border:3px solid #111; box-shadow:4px 4px 0 #111;" />
+          <img src="Edito/bleuet1.png" alt="Bleuet 1"
+            style="width:400px; height:auto; position:absolute; left:8rem; z-index:1; border:3px solid #111; box-shadow:4px 4px 0 #111;" />
+          <img src="Edito/bleuet3.png" alt="Bleuet 3"
+            style="width:400px; height:auto; position:absolute; right:8rem; z-index:1; border:3px solid #111; box-shadow:4px 4px 0 #111;" />
+        </div>
+      </div>
+      <div class="text-side">
+        <h2 class="detail-h2">Création d'un<br>Blog</h2>
+        <div class="detail-projet-tags">
+          <span class="detail-tag-noir">Visual Studio Code</span>
+          <span class="detail-tag-noir">Photoshop</span>
+        </div>
+        <div class="detail-highlight">Une nouvelle adapté au format digital</div>
+        <div class="detail-body">
+          <p>Ce projet personnel est né de ma passion pour l’écriture. J’ai toujours aimé raconter des histoires, alors
+            je me suis lancée dans l’écriture d’une nouvelle… mais pas une nouvelle classique. J’ai voulu innover en la
+            présentant sous la forme d’un blog, où le lecteur suit les aventures du personnage au fil des articles
+            publiés.</p>
+          <p>J’ai dû mobiliser plusieurs compétences pour donner vie à ce projet. D’abord, la rédaction : j’ai travaillé
+            sur un ton adapté pour que le lecteur s’attache au personnage et à son univers. Ensuite, la mise en page :
+            j’ai conçu une structure typique d’un blog, avec des articles organisés de manière chronologique et des
+            visuels pour illustrer l’histoire. Pour les images, j’ai utilisé Adobe Photoshop pour les retouches et les
+            créations originales, tout en gérant une banque d’images libres de droits pour compléter les illustrations.
+            Enfin, j’ai aussi géré la création du site : j’ai codé le blog de A à Z avec Visual Studio Code, en m’aidant
+            de Claude et Copilot pour peaufiner le design. </p>
+          <p>L’objectif était de créer une expérience de lecture immersive, où le format blog ajoute une dimension
+            interactive et moderne à l’histoire.</p>
+        </div>
+      </div>
+      <div class="detail-extras"
+        style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
+        <div class="skills-two-col">
+
+          <div style="border-left:3px  solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Rédaction</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Écriture d’une nouvelle sous forme d’articles,
+              avec un ton captivant et adapté au format blog.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Design graphique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création et retouche de visuels avec Adobe
+              Photoshop.</div>
+          </div>
+
+          <div style="border-left:3px  solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Gestion de ressources visuelles</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Utilisation et organisation d’une banque
+              d’images libres de droits.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              04</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Développement web</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Codage et personnalisation du site avec Visual
+              Studio Code.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── PAGE C3 : Print — Layout C (image haut / deux colonnes texte bas) ── -->
+  <div id="page-c3" class="page-main">
+    <div class="detail-hero" data-emoji="🖨️">
+      <h1 class="detail-hero-title">Design Graphique</h1>
+      <div class="detail-hero-tags">
+        <span class="detail-tag">Affiche</span>
+        <span class="detail-tag">Mockup</span>
+        <span class="detail-tag">Datavisualisation</span>
+      </div>
+    </div>
+
+    <!-- Layout C : grande image haut / texte deux colonnes bas -->
+    <div class="detail-layout-c">
+      <div class="detail-extras-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+        <div class="detail-extra-item"><img src="Design Graphique/tsitp/tsitp-event.png" alt="TSITP Event" /></div>
+        <div class="detail-extra-item"><img src="Design Graphique/tsitp/tsitp-havaianas.png" alt="TSITP Havaianas" />
+        </div>
+        <div class="detail-extra-item"><img src="Design Graphique/tsitp/tsitp-sephora.png" alt="TSITP Sephora" /></div>
+      </div>
+      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+        <div class="text-side">
+          <h2 class="detail-h2">Nouvelle stratégie de communication<br>The Summer I Turned Pretty</h2>
+          <div class="detail-projet-tags">
+            <span class="detail-tag-noir">Illustrator</span>
+            <span class="detail-tag-noir">Photoshop</span>
+            <span class="detail-tag-noir">Canva</span>
+          </div>
+          <div class="detail-highlight">Une analyse de la stratégie de communication d'une série</div>
+          <div class="detail-body">
+            <p>Dans le cadre d’un projet fictif, j’ai analysé la stratégie de communication de la série The Summer I
+              Turned Pretty pour proposer une nouvelle approche visant à toucher plus efficacement son public cible.
+              J’ai structuré ma réflexion autour de trois axes principaux : les réseaux sociaux, les partenariats et les
+              événements. Pour chacun d’eux, j’ai conçu des supports print avec Adobe Illustrator et Photoshop, en
+              veillant à ce qu’ils reflètent l’univers de la série tout en répondant aux attentes des fans.</p>
+            <p>Pour les réseaux sociaux, j’ai créé des mèmes sur Canva : des visuels courts, accrocheurs et faciles à
+              partager, avec des citations cultes de la série, des expressions populaires parmi les fans, et des
+              montages humoristiques ou esthétiques. L’idée était de capter l’attention rapidement, tout en restant
+              fidèle à l’identité de la série.</p>
+            <p>Pour les partenariats, j’ai imaginé des affiche publicitaires mettant en scène les personnages
+              emblématiques de la série aux côtés de grandes marques (mode, cosmétiques, snacks). Ces affiches mettaient
+              en scène des univers parfaitement alignés avec ceux de la série. Pour Havaianas, j’ai imaginé un visuel
+              plage aux couleurs chaudes (oranges, roses, dorés) avec un coucher de soleil en arrière-plan pour évoquer
+              l’été éternel de The Summer I Turned Pretty. Avec Séphora, j’ai créé une composition plus douce mais tout
+              aussi estivale : un setup maquillage posé sur le sable, entouré de fleurs colorées et de coquillages.
+              Chaque visuel jouait sur des compositions dynamiques et des détails symboliques pour capter l’attention
+              tout en restant fidèle à l’esprit de la série.</p>
+            <p>Enfin, pour l’événement, j’ai conçu une affiche pour une soirée plage fictive : un DJ set avec les
+              musiques emblématiques de la série (Taylor Swift, Conan Gray…), un tournoi de volley, un buffet et des
+              feux d’artifice. Le visuel montre des jeunes jouant au volley sur la plage, avec des éléments de design
+              qui rappellent la série : un panneau "Cousins Beach", des planches de surf, des bracelets de coquillages…
+              Un QR code fictif permet même aux fans de s’inscrire à l’événement.</p>
+            <p>Chaque support print a été pensé pour plonger le public dans l’univers de la série, tout en restant
+              cohérent avec les attentes des fans et des marques partenaires.</p>
+          </div>
+        </div>
+        <div class="detail-extras"
+          style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+          <div class="extra-item" style="background:none; border:none; box-shadow:none;"><img
+              src="Design Graphique/tsitp/tsitp-meme.png" alt="TSITP Meme"
+              style="width:400px; height:auto; display:block;" /></div>
+          <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦
+          </div>
+          <div class="skills-two-col">
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                01</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Analyse stratégique</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Étude de la stratégie de communication
+                existante et proposition d’une nouvelle approche ciblée.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                02</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Création de contenu pour les réseaux sociaux</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Conception de mèmes adaptés à la cible.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                03</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Design graphique et print</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création d’affiches publicitaires pour des
+                partenariats et des événements.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                04</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Maîtrise des univers de marque</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Adaptation des visuels aux valeurs et à
+                l’identité des marques partenaires et de la série.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                05</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Composition visuelle</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Travail sur les couleurs, les éléments
+                symboliques et les mises en page dynamiques.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                06</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Création d’expériences immersives</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Conception d’affiches pour un événement
+                fictif (et intégration de QR code pour renforcer l’engagement).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+        <div class="detail-extras"
+          style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+          <div class="extra-item" style="background:none; border:none; box-shadow:none;"><img
+              src="Design Graphique/myla/myla-mockupvinyle.png" alt="Design de vinyle pour l'artiste Myla"
+              style="width:600px; height:auto; display:block;" /></div>
+          <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦
+          </div>
+          <div class="skills-two-col">
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                01</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Analyse artistique</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Immersion dans l’univers du chanteur pour en
+                comprendre les codes et les inspirations.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                02</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Création de concept visuel</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Développement d’un design cohérent avec
+                l’identité et les thèmes des chansons.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                03</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Design graphique</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Utilisation de textures, effets de lumière et
+                dégradés.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                04</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Maîtrise des outils</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Utilisation d’Adobe Photoshop et d’Adobe
+                Illustrator.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                05</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Conception de packaging</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création d’une pochette de vinyle adaptée aux
+                contraintes techniques et esthétiques.</div>
+            </div>
+
+          </div>
+        </div>
+        <div class="text-side">
+          <h2 class="detail-h2">Mockup<br>Vinyle d'artiste</h2>
+          <div class="detail-projet-tags">
+            <span class="detail-tag-noir">Illustrator</span>
+            <span class="detail-tag-noir">Photoshop</span>
+          </div>
+          <div class="detail-highlight">Création de pochette de vinyle</div>
+          <div class="detail-body">
+            <p>Dans mon temps libre, je m’amuse à imaginer des designs et visuels pour des artistes, notamment pour
+              leurs pochettes d’albums. C’est un exercice que j’adore, car il me permet de plonger dans l’univers d’un
+              chanteur ou d’une chanteuse et de traduire son identité en images.</p>
+            <p>Pour ce projet, j’ai choisi de travailler sur une pochette de vinyle. L’enjeu était de réer un packaging
+              qui reflète parfaitement l’image de l’artiste. J’ai opté pour un design épuré, mais enrichi de paillettes
+              et de jeux de lumières pour évoquer la magie et le rêve présents dans ses chansons. Sur Adobe Photoshop,
+              j’ai joué avec les textures, les effets de lumière et les dégradés pour donner du relief et de la
+              profondeur au visuel. Avec Adobe Illustrator, j’ai conçu les éléments graphiques plus précis, comme les
+              motifs ou les typographies, pour garantir une finition professionnelle.</p>
+            <p>L’objectif était de créer une pochette qui attire l’œil sur les étagères, tout en restant fidèle à
+              l’univers de l’artiste.</p>
+          </div>
+        </div>
+      </div>
+      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+        <div class="text-side">
+          <h2 class="detail-h2">Infographies<br>et Data-Art</h2>
+          <div class="detail-projet-tags">
+            <span class="detail-tag-noir">Illustrator</span>
+            <span class="detail-tag-noir">Photoshop</span>
+            <span class="detail-tag-noir">Canva</span>
+          </div>
+          <div class="detail-highlight">Transformation de données en histoire visuelle</div>
+          <div class="detail-body">
+            <p>Lors de ma formation, j’ai été amenée à travailler sur des visuels visant à organiser et mettre en valeur
+              des informations. L’enjeu était de ne pas simplement présenter des données, mais de les rendre vivantes,
+              en leur donnant une dimension visuelle qui capte l’attention et transmet un message clair. </p>
+            <p>J’ai réalisé plusieurs projets dans cet esprit. Par exemple, j’ai créé une œuvre de data art sous forme
+              de carte de vœux. À partir de données récoltées en ligne, j’ai conçu un visuel symbolique sur Illustrator
+              : un classement des films de Noël représenté sous la forme de guirlandes et de boules de Noël. Chaque
+              élément avait une signification, et l’ensemble formait une composition à la fois esthétique et
+              informative. </p>
+            <p>J’ai aussi travaillé sur des infographies plus classiques, mais toujours avec une touche créative. Par
+              exemple, j’ai conçu une infographie sur InDesign, concernant les Premiers ministres de la Ve République,
+              en intégrant des graphiques clairs et des visuels qui mettent en valeur les données de manière intuitive.
+              L’idée était de rendre des informations parfois complexes accessibles et engageantes, en jouant sur les
+              couleurs, les formes et la hiérarchie visuelle. </p>
+            <p>Pour moi, la datavisualisation permet de transformer des données en une histoire visuelle, en combinant
+              précision et créativité. </p>
+          </div>
+        </div>
+        <div class="detail-extras"
+          style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+          <div class="extra-item" style="background:none; border:none; box-shadow:none; text-align:center;"><img
+              src="Design Graphique/infographie/infographie.png" alt="Infographie"
+              style="width:500px; height:auto; display:inline-block; margin:0 auto;" /></div>
+        </div>
+      </div>
+      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+        <div class="detail-extras"
+          style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; justify-content:center; align-items:center;">
+          <div style="display:flex; gap:0; flex-wrap:wrap; justify-content:center; width:100%;">
+            <div class="extra-item"
+              style="background:none; border:none; box-shadow:none; text-align:center; flex:0 0 auto;">
+              <img src="Design Graphique/infographie/dataart.png" alt="Data Art"
+                style="width:350px; height:auto; display:block; margin:0 auto; padding:0;" />
+            </div>
+            <div class="extra-item"
+              style="background:none; border:none; box-shadow:none; text-align:center; flex:0 0 auto;">
+              <img src="Design Graphique/infographie/dataart2.png" alt="Data Art 2"
+                style="width:350px; height:auto; display:block; margin:0 auto; padding:0;" />
+            </div>
+          </div>
+        </div>
+        <div class="detail-extras"
+          style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+          <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦
+          </div>
+          <div class="skills-two-col">
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                01</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Collecte et analyse de données</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Recherche et sélection d’informations
+                pertinentes sur des thèmes variés.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                02</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Conception de data art</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création de visuels artistiques à partir de
+                données.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                03</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Design d’infographies</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Mise en scène visuelle de données complexes.
+              </div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                04</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Storytelling visuel</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">transformation de données en récits clairs et
+                engageants.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                05</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Maîtrise des outils de création</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Utilisation d’Adobe Photoshop, d’Adobe
+                Illustrator et d’Adobe InDesign.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                06</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Adaptation du message</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Choix de formats et de styles visuels adaptés
+                au public et au sujet.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PAGE C4 : Réseaux Sociaux — Layout D (image 2/3 gauche / texte fond rouge droite) ── -->
+  <div id="page-c4" class="page-main">
+    <div class="detail-hero" data-emoji="📱">
+      <h1 class="detail-hero-title">Réseaux<br>Sociaux</h1>
+      <div class="detail-hero-tags">
+        <span class="detail-tag">Stratégie</span>
+        <span class="detail-tag">Création de contenu</span>
+      </div>
+    </div>
+
+    <!-- Layout D : grande image gauche (2/3) / texte fond hot-pink droite (1/3) -->
+    <div class="detail-layout-d">
+      <div class="img-side">
+        <div style="display: flex; gap: 1rem; margin-top: 2rem; align-items: flex-start;">
+          <img src="Réseaux sociaux/ebony/cover album.png" alt="Stratégie"
+            style="height: 500px; object-fit: contain; flex: 1;" />
+          <img src="Réseaux sociaux/ebony/feed insta.png" alt="Instagram"
+            style="height: 500px; object-fit: contain; flex: 1;" />
+        </div>
+      </div>
+      <div class="text-side">
+        <div class="detail-section-label detail-section-label-light">Présentation</div>
+        <h2 class="detail-h2 detail-h2-light">Veille et création de contenus</h2>
+        <div class="detail-body" style="color:rgba(255,245,225,.85);">
+          <p>Dans le cadre d’un projet fictif en stratégie digitale, j’ai accompagné une artiste émergente dans la
+            construction de son identité en ligne.</p>
+          <p>Pour y parvenir, j’ai d’abord mené une veille stratégique approfondie sur ses principaux concurrents dans
+            l’industrie musicale. Grâce à Meta Business Suite, j’ai pu analyser leurs performances sur Facebook et
+            Instagram : quels types de contenus généraient le plus d’engagement ? À quelle fréquence publiaient-ils ?
+            Comment interagissaient-ils avec leur communauté ? Ces données, couplées à une étude qualitative, m’ont
+            permis de décrypter leurs forces et leurs faiblesses.</p>
+          <p>J’ai ensuite organisé ces insights dans un mapping stratégique pour visualiser la place de l’artiste dans
+            ce paysage concurrentiel.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-layout-m"
+      style="grid-template-columns: 1fr 2fr; gap: 0; background-color: #d4c7d5; display:grid;">
+
+      <!-- Bloc compétences à gauche -->
+      <div class="detail-extras"
+        style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">
+          Compétences acquises ✦
+        </div>
+
+        <div class="skills-two-col">
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Analyse stratégique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Veille concurrentielle sur les réseaux sociaux,
+              étude des positionnements et des contenus des concurrents dans l’industrie musicale.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Construction d’un mapping stratégique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Visualisation de l’environnement concurrentiel
+              pour identifier des opportunités de différenciation.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Analyse de données</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Utilisation de Google Analytics et Meta
+              Business Suite pour mesurer les performances et ajuster la stratégie.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              04</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Définition d’un axe de communication</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Élaboration d’une ligne éditoriale cohérente et
+              adaptée à l’identité de l’artiste.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              05</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Création de contenus pour les réseaux sociaux</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Conception de maquettes de posts, stories et
+              vidéos alignées sur l’univers artistique et les attentes de l’audience.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              06</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Maîtrise des univers de marque</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Adaptation des visuels, du ton et des messages
+              aux valeurs et à la personnalité de l’artiste.</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bloc image + texte à droite -->
+      <div class="img-side">
+        <div
+          style="display: flex; flex-direction: column; gap: 1rem; margin-top: .5rem; align-items: center; background-color: #d4c7d5;">
+          <img src="Réseaux sociaux/ebony/map.png" alt="Stratégie"
+            style="height: 500px; object-fit: contain; width: 100%; max-width: 800px;" />
+          <div class="detail-body" style="color:black; padding: 0 6rem 6rem 6rem;">
+            <p>
+              Grâce à ces analyses, j’ai défini un axe de communication clair pour l’artiste,
+              ainsi qu’une ligne éditoriale adaptée à sa personnalité.
+            </p>
+            <ul style="margin-left: 1.5rem;">
+              <li style="margin-left: 1.5rem;">Son univers artistique (couleurs, typographies, style graphique)</li>
+              <li style="margin-left: 1.5rem;">Ses messages clés (valeurs, storytelling, calls-to-action)</li>
+              <li style="margin-left: 1.5rem;">Les attentes de son audience (rythme de publication, interactions)</li>
+            </ul>
+            <br>
+            <p>
+              Enfin, pour mesurer l’impact de cette stratégie, j’ai utilisé Google Analytics
+              afin de suivre le trafic généré par les réseaux sociaux vers son site ou ses plateformes.
+              Ce projet m’a permis de renforcer mes compétences en analyse concurrentielle,
+              en création de contenu, et en stratégie de marque.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-layout-c" style="background-color: var(--pink);">
+      <div class="detail-extras-grid"
+        style="grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 4rem 0;">
+        <div class="detail-extra-item" style="background: #d4c7d5;"><img src="Réseaux sociaux/pole formation/5.png"
+            alt="Publication Instagram" />
+        </div>
+        <div class="detail-extra-item" style="background: #d4c7d5;"><img src="Réseaux sociaux/pole formation/7.png"
+            alt="Publication Instagram" />
+        </div>
+        <div class="detail-extra-item" style="background: #d4c7d5;"><img
+            src="Réseaux sociaux/pole formation/Insta - meme bac pro melec.png" alt="Publication Instagram" /></div>
+      </div>
+      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+        <div class="text-side">
+          <h2 class="detail-h2">Les réseaux sociaux<br>du Pôle Formation Adour</h2>
+          <div class="detail-projet-tags">
+            <span class="detail-tag-noir">Canva</span>
+            <span class="detail-tag-noir">CapCut</span>
+          </div>
+          <div class="detail-body">
+            <p>Lors de mon stage au Pôle Formation Adour, j’ai endossé le rôle de Community Manager pour leurs réseaux
+              sociaux. Mon premier travail a été d’analyser en profondeur leur contenu existant et leurs performances à
+              l’aide de Meta Business Suite : quels posts fonctionnaient ? Quels formats généraient le plus d’engagement
+              ? Quels étaient les points à améliorer ? À partir de ce diagnostic, j’ai proposé une nouvelle stratégie de
+              communication, plus adaptée à leur public et à leurs objectifs.
+            </p>
+            <p>Pour rendre cette stratégie opérationnelle, j’ai établi une liste de concepts réutilisables : des idées
+              de posts, des formats récurrents, et des thèmes à exploiter pour maintenir une présence cohérente et
+              engageante. J’ai travaillé en étroite collaboration avec les ambassadeurs de l’organisme pour affiner ces
+              concepts et m’assurer qu’ils correspondaient bien à l’image et aux valeurs du Pôle Formation Adour.</p>
+            <p>En parallèle, j’ai animé les réseaux sociaux et créé du contenu varié avec Canva pour les visuels et
+              CapCut pour le montage vidéo :</p>
+            <ul style="margin-top: 1rem; margin-left: 3rem;">
+              <li>Des posts informationnels pour partager des actualités.</li>
+              <li>Des contenus tendance pour toucher un public plus large.</li>
+              <li>Des vidéos pour retracer des événements.</li>
+            </ul>
+            <br>
+            <p>Grâce à cette approche, j’ai pu animer leur communauté en favorisant les interactions et en renforçant
+              leur visibilité en ligne.</p>
+          </div>
+        </div>
+        <div class="detail-extras"
+          style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+          <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦
+          </div>
+          <div class="skills-two-col">
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                01</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Analyse de performance</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Évaluation des contenus et des métriques sur
+                les réseaux sociaux via Meta Business Suite.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                02</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Élaboration de stratégie digitale</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Proposition d’une nouvelle approche de
+                communication adaptée au public cible.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                03</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Création de concepts réutilisables</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Développement d’idées de formats.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                04</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Collaboration avec des ambassadeurs</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Travail en équipe.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                05</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Production de contenu varié</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création de posts informationnels, de
+                contenus tendance et de vidéos événementielles.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                06</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Animation de communauté</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Gestion des interactions et renforcement de
+                la visibilité en ligne.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-layout-c" style="background-color: var(--pink);">
+      <div class="detail-extras-grid"
+        style="grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 4rem 0;">
+        <div class="detail-extra-item" style="background: #d4c7d5;"><img src="Réseaux sociaux/booktok/booktok1.png"
+            alt="Publication Instagram" />
+        </div>
+        <div class="detail-extra-item" style="background: #d4c7d5;"><img src="Réseaux sociaux/booktok/booktok2.png"
+            alt="Publication Instagram" />
+        </div>
+        <div class="detail-extra-item" style="background: #d4c7d5;"><img src="Réseaux sociaux/booktok/booktok3.png"
+            alt="Publication Instagram" /></div>
+      </div>
+      <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+        <div class="text-side">
+          <h2 class="detail-h2">Ambassadrice<br>pour le Pass Culture</h2>
+          <div class="detail-projet-tags">
+            <span class="detail-tag-noir">Canva</span>
+            <span class="detail-tag-noir">CapCut</span>
+          </div>
+          <div class="detail-body">
+            <p>Pendant un an, j’ai eu la chance de faire partie du BookClub Pass Culture en tant que membre et
+              ambassadrice. Chaque mois, je recevais 2 à 3 livres envoyés directement par des maisons d’édition. Mon
+              rôle était de partager mon avis sincère sous forme de retours détaillés. Mon implication ne s’arrêtait pas
+              là : en tant qu’ambassadrice, j’ai pris la décision de créer du contenu sur mes réseaux pour promouvoir
+              ces lectures et animer une certaine communauté.
+            </p>
+            <p>J’ai produit des vidéos avec ma DJI Osmo Pocket 3 pour filmer des contenus de qualité, puis je les ai
+              montées avec CapCut et After Effects. Mon but était de présenter les livres, partager mes coups de cœur,
+              et même de discuter des thèmes abordés. J’ai également conçu des visuels avec Canva et Illustrator (posts,
+              stories, infographies) pour mettre en avant les ouvrages et susciter l’envie de les découvrir. L’objectif
+              était de créer du lien autour de la lecture, en partageant ma passion tout en restant honnête et
+              authentique.</p>
+            <p>Cette expérience m’a permis de développer mon sens critique, d’affiner ma capacité à créer du contenu
+              engageant, et de contribuer à une communauté de lecteurs.</p>
+          </div>
+        </div>
+        <div class="detail-extras"
+          style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+          <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦
+          </div>
+          <div class="skills-two-col">
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                01</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Lecture critique et analyse littéraire</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Évaluation honnête et détaillée des ouvrages
+                reçus.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                02</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Création de contenu vidéo</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Tournage et montage.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+                03</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Design graphique</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création de visuels.</div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                04</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Animation de communauté</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Engagement et interaction avec les lecteurs.
+              </div>
+            </div>
+
+            <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+              <div
+                style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+                05</div>
+              <div
+                style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+                Gestion de projet éditorial</div>
+              <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Organisation des retours et des publications
+                sur une année.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PAGE C5 : UI/UX — Layout E (texte 3/5 gauche / image 2/5 droite) ── -->
+  <div id="page-c5" class="page-main">
+    <div class="detail-hero" data-emoji="🔧">
+      <h1 class="detail-hero-title">Web Design<br>& Développement</h1>
+      <div class="detail-hero-tags">
+        <span class="detail-tag">Web</span>
+        <span class="detail-tag">App</span>
+        <span class="detail-tag">Prototype</span>
+        <span class="detail-tag">Figma</span>
+      </div>
+    </div>
+
+    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div
+        style="grid-column:1 / -1; display:flex; flex-direction:column; align-items:center; gap:1.5rem; padding:3rem 0;">
+        <img src="web design & developpement/dm2i/cartographie.png" alt="cartographie"
+          style="width:100%; max-width:700px; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
+        <p>Visualisez le site web sur : <a href="https://lauracqd.github.io/DM2i/" target="_blank"
+            style="color: inherit; text-decoration: underline;">https://lauracqd.github.io/DM2i/</a></p>
+      </div>
+      <div class="text-side">
+        <h2 class="detail-h2">DM2i</h2>
+        <div class="detail-projet-tags">
+          <span class="detail-tag-noir">Figma</span>
+          <span class="detail-tag-noir">Visual Studio Code</span>
+        </div>
+        <div class="detail-highlight">Travail en collaboration avec la recherche</div>
+        <div class="detail-body">
+          <p>Dans le cadre du projet DM2i, une étude sur l’émergence de l’intelligence artificielle dans la création
+            musicale, j’ai eu l’opportunité de travailler sur deux aspects clés : la veille informationnelle et la
+            conception d’un site web complet.
+          </p>
+          <p>D’abord, nous avons mené une veille approfondie en collectant des articles, études et rapports sur les
+            plateformes de streaming et les entreprises spécialisées dans les outils d’IA musicale. Cette phase nous a
+            permis de comprendre les enjeux et les acteurs majeurs du secteur.
+          <p>Ensuite, j’ai conçu une charte graphique pour le projet sur Figma : un logo, une palette de couleurs, des
+            typographies et un premier kakemono pour synthétiser les informations clés. Ce travail m’a permis de
+            structurer visuellement l’identité du projet avant de passer à la phase de développement.</p>
+          <p>Mais c’est surtout sur la création du site internet que j’ai pu mettre en avant mes compétences en Web
+            Design et Développement. Avec Visual Studio Code, j’ai réalisé un site vitrine en HTML, CSS et JavaScript où
+            nous présentions 4 axes de recherche sous forme d’infographies interactives. J’ai également intégré une
+            cartographie dynamique qui met en relation les différents acteurs du secteur (services d’IA, financeurs,
+            majors, etc.), en identifiant leurs liens : financement, partenariat, acquisition, licence ou litige. Ce
+            travail a nécessité une réflexion approfondie sur l’UX/UI pour rendre les informations accessibles, tout en
+            garantissant une navigation fluide et un design cohérent. </p>
+          <p>Ce projet m’a permis de progresser en développement front-end, en gestion de données et en création
+            d’interfaces efficaces. </p>
+        </div>
+      </div>
+      <div class="detail-extras"
+        style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
+        <div class="skills-two-col">
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Veille informationnelle</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Collecte et analyse d’articles, études et
+              rapports sur un secteur spécifique.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Conception de charte graphique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création d’une identité visuelle.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Intégration d’infographies interactives</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Mise en valeur de données.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              04</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Création de cartographie dynamique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Représentation des relations entre acteurs
+              (financement, partenariat, etc.).</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              05</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Réflexion UX/UI</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Conception d’interfaces adaptées aux besoins
+              utilisateurs.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              06</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Utilisation de Visual Studio Code</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Développement et gestion de projet web.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div
+        style="grid-column:1 / -1; display:flex; flex-direction:column; align-items:center; gap:1.5rem; padding:3rem 0;">
+        <img src="web design & developpement/challenge data/dataviz.png" alt="dataviz"
+          style="width:100%; max-width:700px; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
+        <p>Visualisez le site web sur : <a href="https://lauracqd.github.io/Challenge-Data/" target="_blank"
+            style="color: inherit; text-decoration: underline;">https://lauracqd.github.io/Challenge-Data/</a></p>
+      </div>
+      <div class="text-side">
+        <h2 class="detail-h2">Challenge Data</h2>
+        <div class="detail-projet-tags">
+          <span class="detail-tag-noir">Figma</span>
+          <span class="detail-tag-noir">Visual Studio Code</span>
+          <span class="detail-tag-noir">Flourish</span>
+          <span class="detail-tag-noir">Canva</span>
+        </div>
+        <div class="detail-highlight">Participation à un challenge</div>
+        <div class="detail-body">
+          <p>J’ai participé à un challenge de la donnée centré sur la désinformation climatique. L’objectif était
+            d’analyser des jeux de données pour en extraire des informations clés et concevoir une stratégie de
+            communication autour de ce sujet.
+          </p>
+          <p>Pour rendre les données accessibles et percutantes, nous avons créé de nombreuses datavisualisations avec
+            Flourish, en produisant des graphiques interactifs et clairs. En parallèle, j’ai conçu des visuels pour les
+            réseaux sociaux, adaptés à un public non expert, pour mettre en avant les informations les plus importantes
+            de manière engageante.
+          </p>
+          <p>Le cœur du projet a été la création d’un site internet qui centralisait toutes nos réalisations :
+            graphiques, infographies et un storytelling pour guider le visiteur. Pour rendre l’expérience encore plus
+            immersive, nous avons ajouté un jeu interactif sous forme de quiz. Ce jeu testait les utilisateurs sur leur
+            capacité à reconnaître des actes de désinformation, notamment à travers des exemples d’intox diffusés à la
+            télévision. Ce travail a nécessité une réflexion poussée sur l’UX/UI : organisation des informations,
+            navigation intuitive, et design cohérent pour faciliter la compréhension.</p>
+          <p>Enfin, toutes nos réalisations ont été assemblées et harmonisées sur Figma pour produire un livrable
+            visuellement cohérent.</p>
+          <p>Ce projet m’a permis de progresser en développement web, en gestion de données et en création d’interfaces
+            interactives. </p>
+        </div>
+      </div>
+      <div class="detail-extras"
+        style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
+        <div class="skills-two-col">
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Analyse de données</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Extraction et interprétation de jeux de données
+              sur la désinformation climatique.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Datavisualisation</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création de graphiques interactifs avec
+              Flourish.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Design pour les réseaux sociaux</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Conception de visuels adaptés à un public non
+              expert.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              04</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Développement web</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création d’un site internet.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              05</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Conception d’expériences interactives</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Intégration d’un jeu quiz pour tester les
+              connaissances des utilisateurs.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              06</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              UX/UI Design</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Organisation des informations et navigation
+              intuitive pour une expérience utilisateur fluide.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PAGE C6 : Audiovisuel — Layout F (image gauche large / texte noir droite) ── -->
+  <div id="page-c6" class="page-main">
+    <div class="detail-hero" data-emoji="🎞️">
+      <h1 class="detail-hero-title">Audiovisuel</h1>
+      <div class="detail-hero-tags">
+        <span class="detail-tag">Animation</span>
+        <span class="detail-tag">Publicité</span>
+        <span class="detail-tag">Vidéo</span>
+        <span class="detail-tag">After Effects</span>
+      </div>
+    </div>
+
+    <!-- Layout F : image gauche large (jaune) / texte fond noir droite -->
+    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div
+        style="grid-column:1 / -1; display:flex; flex-direction:column; align-items:center; gap:1.5rem; padding:3rem 0;">
+        <a href="https://drive.google.com/file/d/1ODC4FtEtm0YjJeHW1JKK9IHoYTLWJlvV/view?usp=drive_link" target="_blank"
+          style="width:100%; max-width:700px; display:block; text-decoration:none;">
+          <img src="audiovisuel/doritos.png" alt="publicité doritos"
+            style="width:100%; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
+        </a>
+        <p>Visualisez la vidéo sur : <a
+            href="https://drive.google.com/file/d/1ODC4FtEtm0YjJeHW1JKK9IHoYTLWJlvV/view?usp=drive_link" target="_blank"
+            style="color: inherit; text-decoration: underline;">Google Drive</a></p>
+      </div>
+      <div class="text-side">
+        <h2 class="detail-h2">Publicité <br>Doritos</h2>
+        <div class="detail-projet-tags">
+          <span class="detail-tag-noir">Premiere Pro</span>
+        </div>
+        <div class="detail-highlight">Création d'une publicité originale pour une marque mondialement connue</div>
+        <div class="detail-body">
+          <p>Dans le cadre d’une compétition fictive en formation, nous avions pour mission de réaliser une publicité
+            pour Doritos. L’objectif était de promouvoir le produit et toucher un public le plus large possible (d’où le
+            choix de tourner la vidéo en anglais). Avant de passer à la réalisation, nous avons longuement réfléchi au
+            message que nous voulions transmettre. Notre idée : "Doritos, c’est pour tout le monde". Pour le prouver,
+            nous avons imaginé un concept décalé : "Manger un Doritos, ça fait rajeunir !"
+          </p>
+          <p>Pour donner vie à cette idée, nous avons contacté une maison de retraite et avons eu la chance de trouver
+            deux résidentes prêtes à jouer le jeu devant la caméra.
+          </p>
+          <p>Une fois les prises de vues terminées, j’ai pris en charge l’intégralité du montage sur Adobe Premiere Pro.
+            J’ai travaillé sur le rythme, les transitions, les effets sonores et la musique.</p>
+          <p>Ce projet m’a permis de découvrir les coulisses de la production audiovisuelle, de la rédaction de scénario
+            à la finalisation technique.</p>
+        </div>
+      </div>
+      <div class="detail-extras"
+        style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
+        <div class="skills-two-col">
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Rédaction de scénario</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Élaboration d’une idée originale et adaptée au
+              public cible.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Organisation de tournage</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Coordination avec des acteurs non
+              professionnels et gestion logistique.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Prise de vues</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Capture d’images authentiques et adaptées au
+              ton de la publicité.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              04</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Montage vidéo</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Assemblage des séquences, travail sur le
+              rythme, les transitions et les effets sonores.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              05</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Post-production</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Intégration de la musique et des effets pour un
+              rendu professionnel.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              06</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Adaptation interculturelle</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création de contenu en anglais pour toucher un
+              public international.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div
+        style="grid-column:1 / -1; display:flex; flex-direction:column; align-items:center; gap:1.5rem; padding:3rem 0;">
+        <a href="https://drive.google.com/file/d/1S1nJ5vnn6J1F7iMQg-ychSHgbxsfOvGX/view?usp=drive_link" target="_blank"
+          style="width:100%; max-width:700px; display:block; text-decoration:none;">
+          <img src="audiovisuel/ariane&chris.png" alt="Documentaire pour le groupe de musique Ariane & Chris"
+            style="width:100%; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
+        </a>
+        <p>Visualisez la vidéo sur : <a
+            href="https://drive.google.com/file/d/1S1nJ5vnn6J1F7iMQg-ychSHgbxsfOvGX/view?usp=drive_link" target="_blank"
+            style="color: inherit; text-decoration: underline;">Google Drive</a></p>
+      </div>
+      <div class="text-side">
+        <h2 class="detail-h2">Documentaire <br>Ariane & Chris</h2>
+        <div class="detail-projet-tags">
+          <span class="detail-tag-noir">CapCut</span>
+        </div>
+        <div class="detail-highlight">Création d'un documentaire pour le groupe de musique Ariane & Chris</div>
+        <div class="detail-body">
+          <p>J’ai eu la chance d’interviewer le groupe de musique amateur Ariane & Chris pour réaliser une vidéo
+            documentaire retraçant leur parcours. L’objectif était de donner la parole aux artistes et de mettre en
+            scène leur histoire à travers leurs témoignages et des images capturées sur le vif.</p>
+          <p>Pour ce projet, j’ai organisé les interviews en amont, en réfléchissant aux questions qui permettraient de
+            faire émerger leur personnalité et leur passion. Pendant le tournage, j’ai veillé à capturer des moments
+            spontanés : répétitions, échanges entre les membres, ou encore des détails qui reflètent leur univers
+            musical. Ces prises de vues ont permis d’illustrer leurs propos et de donner une dimension visuelle et
+            émotionnelle au documentaire.</p>
+          <p>Ensuite, j’ai monté la vidéo sur CapCut en assemblant les interviews et les images pour créer un récit
+            cohérent et captivant.</p>
+        </div>
+      </div>
+      <div class="detail-extras"
+        style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
+        <div class="skills-two-col">
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Préparation d’interviews</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Élaboration de questions.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Storytelling</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Construction d’une narration.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Création de contenu</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Tournage et montage vidéo.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="detail-layout-d">
+      <div class="img-side"
+        style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div style="display: flex; gap: 1rem; margin-top: 2rem; align-items: flex-start; width: 100%;">
+          <a href="https://drive.google.com/drive/folders/1jCwoWw4ZXBi4yOf4RekIgrh51uo4ver_?usp=drive_link"
+            target="_blank" style="flex: 1; display: block;">
+            <img src="audiovisuel/edit1.png" alt="Vidéo format réseaux sociaux"
+              style="height: 500px; object-fit: contain; width: 100%;" />
+          </a>
+          <a href="https://drive.google.com/drive/folders/1jCwoWw4ZXBi4yOf4RekIgrh51uo4ver_?usp=drive_link"
+            target="_blank" style="flex: 1; display: block;">
+            <img src="audiovisuel/persuasion.png" alt="vidéo format réseaux sociaux"
+              style="height: 500px; object-fit: contain; width: 100%;" />
+          </a>
+          <a href="https://drive.google.com/drive/folders/1jCwoWw4ZXBi4yOf4RekIgrh51uo4ver_?usp=drive_link"
+            target="_blank" style="flex: 1; display: block;">
+            <img src="audiovisuel/video-nouvelle.png" alt="vidéo format réseaux sociaux"
+              style="height: 500px; object-fit: contain; width: 100%;" />
+          </a>
+        </div>
+        <p style="margin-top: 1.5rem; text-align: center; color: rgba(255,245,225,.85);">Visualisez toutes les vidéos
+          sur : <a href="https://drive.google.com/drive/folders/1jCwoWw4ZXBi4yOf4RekIgrh51uo4ver_?usp=drive_link"
+            target="_blank" style="color: inherit; text-decoration: underline;">Google Drive</a></p>
+      </div>
+      <div class="text-side">
+        <div class="detail-section-label detail-section-label-light">Présentation</div>
+        <h2 class="detail-h2 detail-h2-light">Création de contenu</h2>
+        <div class="detail-body" style="color:rgba(255,245,225,.85);">
+          <p>Que ce soit dans le cadre de projets personnels, universitaires ou professionnels, j’ai réalisé de
+            nombreuses vidéos, en prenant en charge chaque étape : écriture de scénarios, captation visuelle et montage
+            adapté aux formats des réseaux sociaux. Que ce soit en synchronisant les images avec la musique ou en
+            adaptant le rythme aux dialogues, chaque vidéo devait capter l’attention et plaire aux utilisateurs.</p>
+          <p>En parallèle, j’ai aussi travaillé sur des édits de séries ou de célébrités avec After Effects. J’y ai
+            intégré des transitions fluides et des effets visuels percutants pour donner un style unique à mes
+            créations.</p>
+          <p>Ces expériences m’ont permis de maîtriser les codes du montage rapide et impactant, tout en développant une
+            sensibilité aux attentes des audiences sur les réseaux sociaux.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-layout-m"
+      style="grid-template-columns: 1fr 2fr; gap: 0; background-color: #d4c7d5; display:grid;">
+
+      <!-- Bloc compétences à gauche -->
+      <div class="detail-extras"
+        style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">
+          Compétences acquises ✦
+        </div>
+
+        <div class="skills-two-col">
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Création de contenu</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Écriture de scénario, tournage et montage
+              vidéo.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Création d’effets visuels</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Utilisation d’After Effects pour des
+              transitions et effets.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Adaptation aux plateformes</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Maîtrise des codes et formats spécifiques aux
+              réseaux sociaux.</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bloc image à droite -->
+      <div class="img-side"
+        style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #d4c7d5; padding: 2rem;">
+        <a href="https://drive.google.com/drive/folders/1jCwoWw4ZXBi4yOf4RekIgrh51uo4ver_?usp=drive_link"
+          target="_blank" style="width: 100%; max-width: 850px; display: block;">
+          <img src="audiovisuel/edit2.png" alt="Édit vidéo" style="width: 100%; height: auto; object-fit: contain;" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- ── PAGE C7 : OSINT — Layout G (mosaïque deux images haut / texte deux colonnes bas) ── -->
+  <div id="page-c7" class="page-main">
+    <div class="detail-hero" data-emoji="🔍">
+      <h1 class="detail-hero-title">OSINT</h1>
+      <div class="detail-hero-tags">
+        <span class="detail-tag">Recherche</span>
+        <span class="detail-tag">Données</span>
+        <span class="detail-tag">Analyse</span>
+      </div>
+    </div>
+
+    <div class="detail-layout-b" style="grid-template-columns:1fr 1fr; gap:0;">
+      <div
+        style="grid-column:1 / -1; display:flex; flex-direction:column; align-items:center; padding:3rem 0; gap:2rem;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;">
+          <img src="OSINT/osint4fun/journal.png" alt="Visuel extrait du Jeux"
+            style="width:100%; max-width:500px; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
+          <img src="OSINT/osint4fun/mail.png" alt="Visuel extrait du Jeux"
+            style="width:100%; max-width:500px; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
+        </div>
+        <p>Découvrez le jeu en ligne sur le site : <a href="https://www.osint4fun.eu/challenge/absent-echo#challenge"
+            target="_blank" style="color: inherit; text-decoration: underline;">Osint4fun</a></p>
+      </div>
+      <div class="text-side">
+        <h2 class="detail-h2">Jeux d'enquêtes<br>OSINT</h2>
+        <div class="detail-projet-tags">
+          <span class="detail-tag-noir">Visual Studio Code</span>
+          <span class="detail-tag-noir">Outil d'OSINT</span>
+        </div>
+        <div class="detail-highlight">Contenu à la fois visuel et impactant.</div>
+        <div class="detail-body">
+          <p>Dans le cadre de mes études en communication, j’ai conçu un jeu d’enquête interactif inspiré d’une nouvelle
+            que j’avais écrite. L’idée était de plonger les joueurs dans une expérience immersive où ils devraient
+            résoudre des énigmes en utilisant des techniques d’OSINT (recherche en sources ouvertes).
+          </p>
+          <p>Pour y parvenir, j’ai imaginé un scénario et l’ai décliné en une série d’énigmes. Les joueurs devaient
+            analyser des informations en ligne, recouper des données et observer des détails (métadonnées, traces en
+            ligne, etc.) pour avancer dans l’histoire. Chaque indice était pensé pour les guider vers une découverte
+            progressive, comme dans une vraie enquête. </p>
+          <p>Pour renforcer l’immersion, j’ai créé différents supports visuels et numériques :</p>
+          <ul style="margin-top: 1rem; margin-left: 3rem;">
+            <li>Des pages web fictives pour simuler des environnements réalistes.</li>
+            <li>Des visuels intégrés au scénario (captures d’écran, documents, etc.) pour donner du corps à l’intrigue.
+            </li>
+          </ul>
+          <p>Ce projet m’a permis de combiner écriture, design et recherche d’information.</p>
+        </div>
+      </div>
+      <div class="detail-extras"
+        style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
+        <div class="skills-two-col">
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Écriture narrative</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création d’un scénario pour un jeu d’enquête.
+            </div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Conception d’énigmes</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Élaboration de défis basés sur des techniques
+              d’OSINT.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Recherche en sources ouvertes</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Analyse d’informations en ligne et recoupement
+              de données.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              04</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Création de supports numériques</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Développement de pages web fictives avec Visual
+              Studio Code.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              05</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Design graphique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Réalisation de visuels avec Photoshop.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              06</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Utilisation d’outils OSINT</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Recherches avancées, Wayback Machine…</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              07</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Immersion et interactivité</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Intégration d’éléments visuels et numériques
+              pour renforcer l’expérience utilisateur.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-layout-a">
+      <div class="img-side" style="background:#1a1a1a; padding:0; overflow:hidden;">
+        <img src="OSINT/mook/mook.png" alt="Page de couverture du mook" style="max-width: 600px; object-fit:cover;">
+      </div>
+      <div class="text-side">
+        <div class="detail-section-label">Description du projet</div>
+        <h2 class="detail-h2">Mook<br>Num'héro</h2>
+        <div class="detail-highlight">Création d'un mook</div>
+        <div class="detail-body">
+          <p>Le projet Mook Num’héro a été une aventure à la fois journalistique et créative. Il s’agissait de réaliser
+            5 enquêtes complètes, de A à Z, et j’ai choisi de me pencher sur un sujet qui me touchait de près : une
+            entreprise de fast-fashion ayant arnaqué une camarade de classe.</p>
+          <p>Pendant un mois, j’ai mené cette enquête avec rigueur :</p>
+          <ul style="margin-left: 1.5rem;">
+            <li style="margin-left: 1.5rem;">J’ai recueilli des preuves (captures d’écran, échanges, témoignages).</li>
+            <li style="margin-left: 1.5rem;">J’ai analysé les informations disponibles en ligne pour comprendre les
+              mécanismes de l’arnaque.</li>
+            <li style="margin-left: 1.5rem;">J’ai rédigé un article détaillé pour exposer les faits de manière
+              percutante.</li>
+          </ul>
+          <p>Une fois l’enquête terminée, j’ai travaillé sur la mise en page de l’article sur Indesign : choix des
+            polices, hiérarchisation des informations, et intégration de visuels attractifs et impactants pour renforcer
+            l’impact du texte.</p>
+          <p>Ensuite, j’ai conçu le design global du mook en veillant à ce que tous les articles aient une cohérence
+            visuelle, grâce à une charte graphique.</p>
+          <p>Pour aller plus loin, j’ai aussi réalisé un podcast qui reprenait l’histoire de cette entreprise et
+            révélait sa véritable nature. Ce format audio a permis d’ajouter une dimension immersive à mon enquête, en
+            donnant la parole aux victimes et en expliquant les rouages de l’arnaque.</p>
+          <P>Ce projet m’a permis de développer mes compétences en investigation, en rédaction journalistique, en design
+            éditorial et en création de contenu multimédia.</P>
+        </div>
+        <div class="detail-projet-tags" style="margin-top:1.2rem;">
+          <span class="detail-tag-noir">Adobe Indesign</span>
+          <span class="detail-tag-noir">Photoshop</span>
+          <span class="detail-tag-noir">Adobe Premiere Pro</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloc compétences + charte graphique côte à côte -->
+    <div class="detail-skills-wrap">
+      <!-- Compétences à gauche -->
+      <div>
+        <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
+        <div class="skills-two-col">
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              01</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Recherche et investigation</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Collecte de preuves, analyse d’informations en
+              ligne et recoupement de données.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              02</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Rédaction journalistique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Écriture d’un article clair, structuré et
+              percutant.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              03</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Mise en page éditoriale</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Organisation visuelle de l’article avec
+              hiérarchisation des informations.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              04</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Design graphique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Création de visuels attractifs et cohérents
+              pour le mook.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--pink); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--pink); margin-bottom:.4rem;">
+              05</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Conception de charte graphique</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Harmonisation des visuels pour une identité
+              visuelle unifiée.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              06</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Création de contenu audio</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Réalisation d’un podcast pour compléter
+              l’enquête avec un format immersif.</div>
+          </div>
+
+          <div style="border-left:3px solid var(--yellow); padding-left:1rem;">
+            <div
+              style="font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--yellow); margin-bottom:.4rem;">
+              07</div>
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--cream); margin-bottom:.4rem;">
+              Gestion de projet multimédia</div>
+            <div style="font-size:.68rem; line-height:1.7; opacity:.75;">Coordination entre texte, visuels et audio.
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Charte graphique à droite -->
+      <div style="position:sticky; top:6rem;">
+        <img src="OSINT/mook/magazine-sommaire.png" alt="Sommaire du Mook"
+          style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════ -->
+  <script>
+    // ── STAR CURSOR ───────────────────────────────────────────
+    const cur = document.getElementById('cur');
+    const path = cur.querySelector('path');
+
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px';
+      cur.style.top = e.clientY + 'px';
+    });
+
+    document.querySelectorAll('a, button, .sk, .gi, .btn, .back-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cur.classList.add('big');
+        path.setAttribute('fill', '#FFE24B');
+        path.setAttribute('stroke', '#FFE24B');
+      });
+      el.addEventListener('mouseleave', () => {
+        cur.classList.remove('big');
+        path.setAttribute('fill', '#FF3D8B');
+        path.setAttribute('stroke', '#FF3D8B');
+      });
+    });
+
+    // ── SCROLL REVEAL ─────────────────────────────────────────
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+      });
+    }, { threshold: .12 });
+
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    document.querySelectorAll('.sk').forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i * .08) + 's';
+      obs.observe(el);
+    });
+
+    document.querySelectorAll('.gi').forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i * .06) + 's';
+      obs.observe(el);
+    });
+
+    // ── PAGE NAVIGATION ───────────────────────────────────────
+    const homePage = document.getElementById('home-page');
+    const allPages = document.querySelectorAll('.page-main');
+
+    // Pages data for nav label
+    const pageLabels = {
+      c1: 'Brand Identity',
+      c2: 'Editorial',
+      c3: 'Print',
+      c4: 'Réseaux Sociaux',
+      c5: 'UI / UX & Maquettes',
+      c6: 'Audiovisuel',
+      c7: 'OSINT',
+    };
+
+    function showPage(id) {
+      // Hide home
+      homePage.classList.add('hidden');
+
+      // Hide all detail pages
+      allPages.forEach(p => p.style.display = 'none');
+
+      // Show target
+      const target = document.getElementById('page-' + id);
+      if (target) {
+        target.style.display = 'block';
+
+        // Inject or update the detail nav inside the page
+        let detailNav = target.querySelector('.detail-nav');
+        if (!detailNav) {
+          detailNav = document.createElement('div');
+          detailNav.className = 'detail-nav';
+          detailNav.innerHTML = `
+          <button class="back-btn" onclick="showHome('creations')">
+            <span class="back-arrow">←</span> Retour aux créations
+          </button>
+          <span class="detail-category-label">${pageLabels[id] || ''}</span>
+        `;
+          target.insertBefore(detailNav, target.firstChild);
+
+          // Re-attach cursor effects for new buttons
+          detailNav.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+              cur.classList.add('big');
+              path.setAttribute('fill', '#FFE24B');
+              path.setAttribute('stroke', '#FFE24B');
+            });
+            el.addEventListener('mouseleave', () => {
+              cur.classList.remove('big');
+              path.setAttribute('fill', '#FF3D8B');
+              path.setAttribute('stroke', '#FF3D8B');
+            });
+          });
+        }
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showHome(anchor) {
+      // Hide all detail pages
+      allPages.forEach(p => p.style.display = 'none');
+
+      // Show home
+      homePage.classList.remove('hidden');
+
+      // Scroll to anchor if provided
+      if (anchor) {
+        setTimeout(() => {
+          const target = document.getElementById(anchor);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+
+</html>
