@@ -212,7 +212,6 @@
 
     .hero-title-block {
       position: relative;
-      margin-left: 3rem;
     }
 
     .hero-title {
@@ -319,10 +318,9 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       gap: 1.2rem;
       padding-bottom: .5rem;
-      padding-left: 60px;
     }
 
     .id-card {
@@ -330,7 +328,8 @@
       border: 3px solid var(--black);
       border-radius: 16px;
       padding: 2rem 2.2rem;
-      width: 550px;
+      width: 100%;
+      max-width: 550px;
       box-shadow: 8px 8px 0 var(--black);
       position: relative;
       animation: popIn .7s .2s cubic-bezier(.34, 1.56, .64, 1) both;
@@ -421,7 +420,9 @@
       display: flex;
       gap: .8rem;
       flex-direction: row;
-      width: 500px;
+      width: 100%;
+      max-width: 550px;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -1046,7 +1047,34 @@
       }
 
       .hero-main {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 3rem;
+      }
+
+      .hero-title-block {
+        margin-left: 0;
+      }
+
+      .hero-top {
+        padding: 2rem 1.5rem 0;
+      }
+
+      .hero-card-wrap {
+        padding-left: 0;
+        width: 100%;
+      }
+
+      .ctas {
+        justify-content: center;
+      }
+
+      .ctas .btn {
+        flex: 1;
+        min-width: 240px;
+        justify-content: center;
       }
 
       .id-card {
