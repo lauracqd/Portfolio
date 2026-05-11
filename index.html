@@ -1809,13 +1809,20 @@
       }
 
       .detail-extras-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr !important;
+      }
+
+      /* Responsive fix for fixed-width images in Page C3 */
+      #page-c3 .extra-item img {
+        width: 100% !important;
+        max-width: 500px;
+        height: auto !important;
       }
     }
 
     @media (max-width: 580px) {
       .detail-extras-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
       }
 
       .full-width-img-block {
@@ -1829,6 +1836,49 @@
       .flex-stack-mobile {
         flex-direction: column !important;
         align-items: center !important;
+      }
+
+      /* Text optimizations for small phones */
+      .detail-hero-title {
+        font-size: clamp(2.2rem, 12vw, 3.5rem) !important;
+      }
+
+      .detail-h2 {
+        font-size: clamp(1.6rem, 8vw, 2.2rem) !important;
+      }
+
+      .detail-highlight {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.2rem !important;
+      }
+
+      .detail-section-label {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.12em !important;
+      }
+
+      .detail-body {
+        font-size: 0.82rem !important;
+        line-height: 1.6 !important;
+      }
+
+      .stmt-big {
+        font-size: clamp(2.5rem, 15vw, 4.5rem) !important;
+      }
+
+      .nav-links a {
+        font-size: 0.75rem !important;
+      }
+
+      /* Skills list adjustments for mobile */
+      .skills-two-col > div > div:first-child {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.15em !important;
+      }
+
+      .skills-two-col > div > div:last-child {
+        font-size: 0.75rem !important;
+        line-height: 1.5 !important;
       }
     }
 
@@ -2000,7 +2050,7 @@
 
       /* Extras grid : 2 colonnes */
       .detail-extras-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
       }
 
       /* Skills wrap sur les pages détail */
