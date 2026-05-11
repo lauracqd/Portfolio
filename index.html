@@ -1989,6 +1989,25 @@
         object-fit: contain !important;
       }
 
+      /* Page C7 (OSINT) specific optimizations */
+      #page-c7 .detail-layout-b {
+        display: block !important;
+      }
+
+      #page-c7 div[style*="display:flex"] img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin-bottom: 1.5rem;
+      }
+
+      #page-c7 .img-side img[src*="mook.png"] {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+      }
+
       /* Global override for inline fixed widths on mobile */
       *[style*="width:350px"],
       *[style*="width:500px"],
