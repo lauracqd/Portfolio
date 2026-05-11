@@ -1707,7 +1707,7 @@
     }
 
     .blog-image-stack img {
-      width: 400px;
+      width: clamp(250px, 80%, 400px);
       height: auto;
       position: absolute;
       border: 3px solid #111;
@@ -1716,7 +1716,7 @@
     }
 
     .blog-img-1 {
-      left: 8rem;
+      left: clamp(1rem, 15%, 8rem);
       z-index: 1;
     }
 
@@ -1727,17 +1727,28 @@
     }
 
     .blog-img-3 {
-      right: 8rem;
+      right: clamp(1rem, 15%, 8rem);
       z-index: 1;
     }
 
     @media (max-width: 1100px) {
       .blog-img-1 {
-        left: 2rem;
+        left: clamp(0.5rem, 5%, 2rem);
       }
 
       .blog-img-3 {
-        right: 2rem;
+        right: clamp(0.5rem, 5%, 2rem);
+      }
+    }
+
+    /* Optimization for full width blocks */
+    .full-width-img-block {
+      padding: 3rem 1.5rem !important;
+    }
+
+    @media (max-width: 900px) {
+      .full-width-img-block {
+        padding: 1.5rem 1rem !important;
       }
     }
 
@@ -1865,7 +1876,8 @@
 
       .id-card {
         max-width: 520px;
-        flex-direction: row;   /* garde la carte horizontale sur tablette */
+        flex-direction: row;
+        /* garde la carte horizontale sur tablette */
         align-items: flex-start;
       }
 
@@ -1967,7 +1979,8 @@
 
       /* Layout G */
       .detail-layout-g .mosaic-top {
-        grid-template-columns: 1fr 1fr;   /* garde 2 cols sur tablette */
+        grid-template-columns: 1fr 1fr;
+        /* garde 2 cols sur tablette */
       }
 
       .detail-layout-g .text-bottom-g {
