@@ -642,6 +642,7 @@
       position: relative;
       overflow: hidden;
       transition: transform .2s ease, box-shadow .2s ease;
+      cursor: default;
     }
 
     .sk:hover {
@@ -4066,7 +4067,7 @@
       cur.style.top = e.clientY + 'px';
     });
 
-    document.querySelectorAll('a, button, .sk, .gi, .btn, .back-btn').forEach(el => {
+     document.querySelectorAll('a, button, .gi, .btn, .back-btn').forEach(el => {
       el.addEventListener('mouseenter', () => {
         cur.classList.add('big');
         path.setAttribute('fill', '#FFE24B');
