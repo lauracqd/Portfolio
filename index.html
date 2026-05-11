@@ -1715,13 +1715,30 @@
       transition: all 0.3s ease;
     }
 
-    .blog-img-1 { left: 8rem; z-index: 1; }
-    .blog-img-2 { left: 50%; transform: translateX(-50%); z-index: 2; }
-    .blog-img-3 { right: 8rem; z-index: 1; }
+    .blog-img-1 {
+      left: 8rem;
+      z-index: 1;
+    }
+
+    .blog-img-2 {
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .blog-img-3 {
+      right: 8rem;
+      z-index: 1;
+    }
 
     @media (max-width: 1100px) {
-      .blog-img-1 { left: 2rem; }
-      .blog-img-3 { right: 2rem; }
+      .blog-img-1 {
+        left: 2rem;
+      }
+
+      .blog-img-3 {
+        right: 2rem;
+      }
     }
 
     @media (max-width: 900px) {
@@ -1731,6 +1748,7 @@
         gap: 2rem;
         padding: 2rem 0;
       }
+
       .blog-image-stack img {
         position: static;
         width: 100%;
@@ -1746,8 +1764,9 @@
       .detail-layout-b,
       .detail-layout-d,
       .detail-layout-e,
-      .detail-layout-f {
-        grid-template-columns: 1fr;
+      .detail-layout-f,
+      .detail-layout-m {
+        grid-template-columns: 1fr !important;
       }
 
       .detail-layout-a .img-side,
@@ -1788,6 +1807,15 @@
 
       .full-width-img-block {
         padding: 1.5rem 0 !important;
+      }
+
+      .detail-responsive-padding {
+        padding: 2rem 1.5rem !important;
+      }
+
+      .flex-stack-mobile {
+        flex-direction: column !important;
+        align-items: center !important;
       }
     }
   </style>
@@ -2437,7 +2465,8 @@
 
     <!-- Layout B : image centrée / texte gauche + compétences droite -->
     <div class="detail-layout-b">
-      <div class="full-width-img-block" style="grid-column:1 / -1; display:flex; justify-content:center; padding:3rem 0;">
+      <div class="full-width-img-block"
+        style="grid-column:1 / -1; display:flex; justify-content:center; padding:3rem 0;">
         <img src="Edito/fortnitemagazine.jpg" alt="Fortnite Magazine"
           style="width:100%; max-width:700px; height:auto; display:block; border:3px solid #111; box-shadow:6px 6px 0 #111;" />
       </div>
@@ -2993,13 +3022,13 @@
     </div>
 
     <!-- Layout D : grande image gauche (2/3) / texte fond hot-pink droite (1/3) -->
-    <div class="detail-layout-d">
+    <div class="detail-layout-d" style="border-bottom:none;">
       <div class="img-side">
-        <div style="display: flex; gap: 1rem; margin-top: 2rem; align-items: flex-start;">
+        <div class="flex-stack-mobile" style="display: flex; gap: 1rem; margin-top: 2rem; align-items: flex-start;">
           <img src="Reseaux sociaux/ebony/cover album.png" alt="Stratégie"
-            style="height: 500px; object-fit: contain; flex: 1;" />
+            style="height: auto; max-height: 500px; object-fit: contain; flex: 1; width: 100%;" />
           <img src="Reseaux sociaux/ebony/feed insta.png" alt="Instagram"
-            style="height: 500px; object-fit: contain; flex: 1;" />
+            style="height: auto; max-height: 500px; object-fit: contain; flex: 1; width: 100%;" />
         </div>
       </div>
       <div class="text-side">
@@ -3019,8 +3048,7 @@
       </div>
     </div>
 
-    <div class="detail-layout-m"
-      style="grid-template-columns: 1fr 2fr; gap: 0; background-color: #d4c7d5; display:grid;">
+    <div class="detail-layout-m">
 
       <!-- Bloc compétences à gauche -->
       <div class="detail-extras"
@@ -3102,12 +3130,12 @@
       </div>
 
       <!-- Bloc image + texte à droite -->
-      <div class="img-side">
+      <div class="img-side full-width-img-block">
         <div
           style="display: flex; flex-direction: column; gap: 1rem; margin-top: .5rem; align-items: center; background-color: #d4c7d5;">
           <img src="Reseaux sociaux/ebony/map.png" alt="Stratégie"
-            style="height: 500px; object-fit: contain; width: 100%; max-width: 800px;" />
-          <div class="detail-body" style="color:black; padding: 0 6rem 6rem 6rem;">
+            style="height: auto; max-height: 500px; object-fit: contain; width: 100%; max-width: 800px;" />
+          <div class="detail-body detail-responsive-padding" style="color:black; padding: 0 6rem 6rem 6rem;">
             <p>
               Grâce à ces analyses, j’ai défini un axe de communication clair pour l’artiste,
               ainsi qu’une ligne éditoriale adaptée à sa personnalité.
@@ -3129,8 +3157,7 @@
       </div>
     </div>
     <div class="detail-layout-c" style="background-color: var(--pink);">
-      <div class="detail-extras-grid"
-        style="grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 4rem 0;">
+      <div class="detail-extras-grid" style="max-width: 1400px; margin: 0 auto;">
         <div class="detail-extra-item" style="background: #d4c7d5;"><img src="Reseaux sociaux/pole formation/5.png"
             alt="Publication Instagram" />
         </div>
@@ -3245,8 +3272,7 @@
     </div>
 
     <div class="detail-layout-c" style="background-color: var(--pink);">
-      <div class="detail-extras-grid"
-        style="grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 4rem 0;">
+      <div class="detail-extras-grid" style="max-width: 1400px; margin: 0 auto;">
         <div class="detail-extra-item" style="background: #d4c7d5;"><img src="Reseaux sociaux/booktok/booktok1.png"
             alt="Publication Instagram" />
         </div>
@@ -3364,7 +3390,7 @@
         <p>Visualisez le site web sur : <a href="https://lauracqd.github.io/DM2i/" target="_blank"
             style="color: inherit; text-decoration: underline;">https://lauracqd.github.io/DM2i/</a></p>
       </div>
-      <div class="text-side">
+      <div class="text-side detail-responsive-padding">
         <h2 class="detail-h2">DM2i</h2>
         <div class="detail-projet-tags">
           <span class="detail-tag-noir">Figma</span>
@@ -3393,7 +3419,7 @@
             d’interfaces efficaces. </p>
         </div>
       </div>
-      <div class="detail-extras"
+      <div class="detail-extras detail-responsive-padding"
         style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
         <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
         <div class="skills-two-col">
@@ -3471,7 +3497,7 @@
         <p>Visualisez le site web sur : <a href="https://lauracqd.github.io/Challenge-Data/" target="_blank"
             style="color: inherit; text-decoration: underline;">https://lauracqd.github.io/Challenge-Data/</a></p>
       </div>
-      <div class="text-side">
+      <div class="text-side detail-responsive-padding">
         <h2 class="detail-h2">Challenge Data</h2>
         <div class="detail-projet-tags">
           <span class="detail-tag-noir">Figma</span>
@@ -3502,7 +3528,7 @@
             interactives. </p>
         </div>
       </div>
-      <div class="detail-extras"
+      <div class="detail-extras detail-responsive-padding"
         style="background:var(--black); color:var(--cream); padding:2.5rem; align-self:stretch; display:flex; flex-direction:column; justify-content:center;">
         <div class="detail-extras-title" style="color:var(--yellow); margin-bottom:2.5rem;">Compétences acquises ✦</div>
         <div class="skills-two-col">
