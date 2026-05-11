@@ -1904,6 +1904,23 @@
         padding: 2.5rem 1.2rem !important;
       }
 
+      /* Page C6 (Audiovisuel) specific optimizations */
+      #page-c6 .img-side > div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+      }
+
+      #page-c6 img[style*="height: 500px"] {
+        height: auto !important;
+        max-height: 350px !important;
+        width: 100% !important;
+        object-fit: contain !important;
+      }
+
+      #page-c6 .detail-extras {
+        padding: 2.5rem 1.2rem !important;
+      }
+
       .id-card, .ctas, .ctas .btn {
         width: 100% !important;
         max-width: 100% !important;
@@ -2100,6 +2117,20 @@
       /* Extras grid : 2 colonnes */
       .detail-extras-grid {
         grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      /* Page C6 (Audiovisuel) Tablet Optimizations */
+      #page-c6 .img-side > div[style*="display: flex"] {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      #page-c6 img[style*="height: 500px"] {
+        height: auto !important;
+        max-height: 400px !important;
+        width: auto !important;
+        max-width: 100%;
       }
 
       /* Skills wrap sur les pages détail */
